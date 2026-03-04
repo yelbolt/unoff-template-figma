@@ -1,0 +1,154 @@
+---
+description: Core project rules for {{ pluginName }} Figma plugin. Apply when working on any aspect of this Figma plugin project.
+globs:
+alwaysApply: true
+---
+
+# Cursor Rules for {{ pluginName }}
+
+You are an expert Figma plugin developer working on a TypeScript/React project.
+
+## 📚 Complete Documentation
+
+**For comprehensive patterns, examples, and best practices, always refer to:**
+
+- **[Architecture & Skills Documentation](.github/skills/README.md)** - Complete implementation guide
+  - **Canvas Layer**: [Figma API](.github/skills/canvas/figma-api.md) • [Data Storage](.github/skills/canvas/data-storage.md)
+  - **Bridge Layer**: [Communication](.github/skills/bridge/communication-pattern.md) • [Functions](.github/skills/bridge/bridge-functions.md)
+  - **Config Layer**: [Global Config](.github/skills/config/global-config.md) • [Feature Flags](.github/skills/config/feature-flags.md) • [Credits System](.github/skills/config/credits-system.md) • [Vite Build](.github/skills/config/vite-build.md) • [Code Quality](.github/skills/config/code-quality.md)
+  - **UI Layer**: [Components](.github/skills/ui/component-library.md) • [Patterns](.github/skills/ui/component-patterns.md) • [Services](.github/skills/ui/external-services.md) • [State](.github/skills/ui/state-management.md) • [i18n](.github/skills/ui/i18n.md) • [Types](.github/skills/ui/types-system.md) • [Errors](.github/skills/ui/error-handling.md) • [CSS/Theming](.github/skills/ui/css-theming.md) • [Accessibility](.github/skills/ui/accessibility.md) • [Performance](.github/skills/ui/performance.md) • [Bootstrap](.github/skills/ui/app-bootstrap.md)
+  - **Externals**: [Implement Design](.github/skills/externals/implement-design) — Figma spec document → code workflow (annotations, MCP, unoff-ui) • [Payment Systems](.github/skills/externals/payment-systems.md) — Figma built-in vs Lemon Squeezy, must choose one
+
+---
+
+## Tech Stack
+- TypeScript (strict mode) + Preact (aliased via preact/compat) + Vite
+- PureComponent class components + HOCs (WithConfig, WithTranslation)
+- Nanostores (lightweight atoms, $prefix convention)
+- Figma Plugin API
+- @unoff/ui (component library)
+- @unoff/utils (utilities)
+- Tolgee (UI translations) + createI18n (Canvas translations)
+{{#isSupabaseEnabled}}
+- Supabase (auth & database)
+{{/isSupabaseEnabled}}
+{{#isSentryEnabled}}
+- Sentry (error monitoring)
+{{/isSentryEnabled}}
+{{#isMixpanelEnabled}}
+- Mixpanel (analytics)
+{{/isMixpanelEnabled}}
+
+## Core Architecture
+
+### Two-Context System
+1. **Canvas Context** (`/src/bridges/`) - Figma API access, NO React/DOM
+2. **UI Context** (`/src/app/`) - React UI, NO direct Figma API
+3. **Communication** - PostMessage pattern
+
+### Key Files
+- **`bridges/loadUI.ts`** - Message router (Canvas ↔ UI hub)
+- **`app/utils/pluginMessage.ts`** - Send messages from UI to Canvas
+
+### Communication Pattern
+
+```typescript
+// UI → Canvas
+import { sendPluginMessage } from '../utils/pluginMessage'
+sendPluginMessage({ pluginMessage: { type: 'ACTION_NAME', data: {...} } })
+
+// Canvas → UI (in loadUI.ts)
+figma.ui.postMessage({ type: 'EVENT_NAME', data: {...} })
+```
+
+## Critical Rules
+
+### ✅ DO
+- Separate UI and Canvas logic completely
+- Use `sendPluginMessage()` for UI → Canvas
+- Use `@unoff/ui` components (Button, Input, Dropdown, Menu, Bar)
+- Use `FeatureStatus` for permission management
+- Define TypeScript types for all messages
+- Handle errors gracefully in bridge functions
+- **Refer to skills documentation for detailed patterns**
+
+### ❌ DON'T
+- Mix Figma API in React components
+- Mix React in bridge files
+- Use `parent.postMessage()` directly
+- Create UI components when unoff-ui has them
+- Use `any` type
+- Skip error handling
+- Hardcode values
+
+## Component Library Quick Reference
+
+```typescript
+// Standard imports
+import { doClassnames, FeatureStatus } from '@unoff/utils'
+import { Bar, Button, Dropdown, Icon, Input, Menu, layouts, texts } from '@unoff/ui'
+
+// FeatureStatus pattern
+static features = (planStatus, config, service, editor) => ({
+  FEATURE_NAME: new FeatureStatus({
+    features: config.features,
+    featureName: 'FEATURE_NAME',
+    planStatus, currentService: service, currentEditor: editor
+  })
+})
+
+// Usage: .isActive() .isBlocked() .isReached(count) .isNew()
+```
+
+For complete component examples → [Component Library](.github/skills/ui/component-library.md)
+
+## Directory Structure
+
+```
+/src/
+├── bridges/              # Canvas (Figma API only)
+│   ├── loadUI.ts         # ⭐ Message router
+│   ├── checks/           # Validations
+│   └── plans/            # Subscriptions
+├── app/                  # UI (React only)
+│   ├── ui/               # Components
+│   ├── stores/           # Nanostores atoms
+│   ├── external/         # Services
+│   ├── types/            # TypeScript defs
+│   ├── config/           # Contexts
+│   ├── content/          # Assets, i18n
+│   └── utils/
+│       └── pluginMessage.ts  # ⭐ UI → Canvas
+└── utils/                # Global utilities
+```
+
+## Naming Conventions
+- Components: `PascalCase`
+- Functions: `camelCase`
+- Constants: `UPPER_SNAKE_CASE`
+- Types/Interfaces: `PascalCase`
+
+## When Generating Code
+
+1. **Check skills documentation first** for patterns and examples
+2. Follow existing patterns in the codebase
+3. Use TypeScript strict mode (no `any`)
+4. Always add error handling
+5. Use unoff-ui components
+6. Add JSDoc for public APIs
+
+## Message Naming Convention
+- UI → Canvas: `VERB_NOUN` (e.g., `CREATE_NODE`)
+- Canvas → UI: `NOUN_PAST_TENSE` (e.g., `NODE_CREATED`)
+
+## Performance
+- `PureComponent` for shallow comparison render optimization
+- Remove DOM for inactive features (not `display: none`)
+- Conditional service init (Sentry/Mixpanel only in production)
+- Build: `viteSingleFile` (zero network requests), platform CSS stripping
+- Batch Figma operations
+- See [Performance Guide](.github/skills/ui/performance.md)
+
+---
+
+**Remember**: Two separate contexts. No mixing. Always communicate via messages. See skills documentation for detailed implementation guides.
