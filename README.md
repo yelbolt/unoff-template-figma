@@ -55,15 +55,15 @@ Go to the `Issues` section and browse the existing tickets or create a new one.
 
 This plugin was built using [Unoff](https://unoff.dev), a powerful framework for creating production-ready Figma plugins with enterprise-grade features.
 
+Scaffolded with [`@unoff/cli`](https://github.com/yelbolt/unoff-cli) — `npx @unoff/cli create figma-plugin`
+
 ### Technologies & Packages
 
 **UI & Components**
-- [@unoff/ui](https://github.com/unoff-dev/ui) - Pre-built UI components designed for Figma plugins
+- [@unoff/ui](https://github.com/a-ng-d/unoff-ui) - Pre-built UI components designed for Figma plugins
 
 **Authentication & Database**
 - [Supabase](https://supabase.com) - Backend as a Service for authentication and database
-- [@unoff/auth](https://github.com/unoff-dev/auth) - Authentication helpers and hooks
-- [@unoff/worker](https://github.com/unoff-dev/worker) - Cloudflare Workers for authentication flows
 
 **Licensing & Payments**
 - [LemonSqueezy](https://lemonsqueezy.com) - License management and payments
@@ -73,8 +73,8 @@ This plugin was built using [Unoff](https://unoff.dev), a powerful framework for
 - [Mixpanel](https://mixpanel.com) - Product analytics and user behavior tracking
 
 **Content & Communication**
-- [Notion](https://notion.so) - Content management for announcements
-- [@unoff/worker](https://github.com/unoff-dev/worker) - Cloudflare Workers for fetching announcements
+- [Notion](https://notion.so) - CMS for announcements and onboarding
+- Cloudflare Workers - Proxy layer for Notion API (auth + CORS)
 
 **Localization**
 - [Tolgee](https://tolgee.io) - Translation management and i18n
