@@ -8,15 +8,15 @@ This template is a Figma plugin built with **TypeScript**, **Preact** (aliased a
 
 For detailed documentation and implementation guides, see:
 
-**[Architecture & Skills Documentation](.github/skills/README.md)**
+**[Architecture & Skills Documentation](skills/README.md)**
 
 The documentation is organized into five layers:
 
-- **Canvas** — Figma API operations ([figma-api.md](.github/skills/canvas/figma-api.md), [data-storage.md](.github/skills/canvas/data-storage.md))
-- **Bridge** — UI ↔ Canvas communication ([communication-pattern.md](.github/skills/bridge/communication-pattern.md), [bridge-functions.md](.github/skills/bridge/bridge-functions.md))
-- **Config** — Feature flags, credits, build system ([global-config.md](.github/skills/config/global-config.md), [feature-flags.md](.github/skills/config/feature-flags.md), [vite-build.md](.github/skills/config/vite-build.md))
-- **UI** — Preact application ([component-library.md](.github/skills/ui/component-library.md), [component-patterns.md](.github/skills/ui/component-patterns.md), [external-services.md](.github/skills/ui/external-services.md), [state-management.md](.github/skills/ui/state-management.md), [i18n.md](.github/skills/ui/i18n.md))
-- **Externals** — Integration workflows ([payment-systems.md](.github/skills/externals/payment-systems.md))
+- **Canvas** — Figma API operations ([figma-api.md](skills/canvas/figma-api.md), [data-storage.md](skills/canvas/data-storage.md))
+- **Bridge** — UI ↔ Canvas communication ([communication-pattern.md](skills/bridge/communication-pattern.md), [bridge-functions.md](skills/bridge/bridge-functions.md))
+- **Config** — Feature flags, credits, build system ([global-config.md](skills/config/global-config.md), [feature-flags.md](skills/config/feature-flags.md), [vite-build.md](skills/config/vite-build.md))
+- **UI** — Preact application ([component-library.md](skills/ui/component-library.md), [component-patterns.md](skills/ui/component-patterns.md), [external-services.md](skills/ui/external-services.md), [state-management.md](skills/ui/state-management.md), [i18n.md](skills/ui/i18n.md))
+- **Externals** — Integration workflows ([payment-systems.md](skills/externals/payment-systems.md))
 
 ### AI Tools Configuration
 
@@ -25,12 +25,12 @@ This project is configured to work with all major AI development tools:
 | Tool | Configuration File | Description |
 |------|-------------------|-------------|
 | **GitHub Copilot** | `.github/copilot-instructions.md` | Guidelines for GitHub Copilot in VS Code |
-| **Cursor** | `.cursorrules` | Configuration for Cursor AI |
-| **Windsurf** | `.windsurfrules` | Configuration for Windsurf AI |
-| **Claude (VS Code)** | `.clauderules` | Configuration for Claude in VS Code |
-| **Figma MCP** | `.mcp.json` | MCP servers for Figma design-to-code |
+| **Cursor** | `.cursor/rules/project.mdc` | Configuration for Cursor AI |
+| **Windsurf** | `.windsurf/rules/project.md` | Configuration for Windsurf AI |
+| **Claude (VS Code)** | `.claude/settings.json` | Configuration for Claude in VS Code |
+| **Figma MCP** | `.vscode/mcp.json` `.cursor/mcp.json` `.windsurf/mcp.json` | MCP servers for Figma design-to-code |
 
-All these files reference the full documentation in `.github/skills/` as a single source of truth.
+All these files reference the full documentation in `skills/` as a single source of truth.
 
 ---
 
@@ -102,6 +102,7 @@ All these files reference the full documentation in `.github/skills/` as a singl
 │   │   │   ├── consent.ts
 │   │   │   ├── credits.ts
 │   │   │   ├── features.ts
+│   │   │   ├── history.ts
 │   │   │   └── preferences.ts
 │   │   ├── types/             # TypeScript definitions
 │   │   │   ├── app.ts
@@ -126,9 +127,12 @@ All these files reference the full documentation in `.github/skills/` as a singl
 │   │   ├── i18n.ts
 │   │   └── setData.ts
 │   └── global.config.ts       # Global configuration
-├── .cursorrules               # Cursor AI guidelines
-├── .windsurfrules             # Windsurf AI guidelines
-├── .clauderules               # Claude (VS Code) guidelines
+├── .claude/                    # Claude (VS Code) settings
+│   └── settings.json
+├── .cursor/                    # Cursor AI configuration
+│   ├── mcp.json
+│   └── rules/
+│       └── project.mdc
 ├── .eslintrc.json             # ESLint configuration
 ├── .prettierrc.json           # Prettier configuration
 ├── tsconfig.json              # TypeScript configuration
@@ -347,6 +351,14 @@ if (globalConfig.env.isNotionEnabled && notionApiKey !== undefined)
 
 State is managed via **Nanostores atoms** (`atom` from `nanostores`), not Zustand. Atoms are prefixed with `$` and subscribed to in components via `@nanostores/preact`.
 
+| File | Description |
+|------|-------------|
+| `consent.ts` | User consent state |
+| `credits.ts` | Credits count atom (`$creditsCount`) |
+| `features.ts` | Feature flags state |
+| `history.ts` | Action history state |
+| `preferences.ts` | User preferences state |
+
 ```typescript
 import { atom } from 'nanostores'
 export const $creditsCount = atom<number>(0)
@@ -439,11 +451,13 @@ const className = doClassnames([layouts['snackbar--medium'], texts['type'], isAc
 | `.prettierrc.json` | Prettier configuration |
 | `tsconfig.json` | TypeScript strict mode |
 | `vite.config.ts` | Dual Vite build (IIFE Canvas + single-file UI) |
-| `.cursorrules` | Cursor AI guidelines |
-| `.windsurfrules` | Windsurf AI guidelines |
-| `.clauderules` | Claude (VS Code) guidelines |
+| `.cursor/rules/project.mdc` | Cursor AI guidelines |
+| `.cursor/mcp.json` | MCP servers (Figma remote + desktop) |
+| `.windsurf/rules/project.md` | Windsurf AI guidelines |
+| `.windsurf/mcp.json` | MCP servers (Figma remote + desktop) |
+| `.claude/settings.json` | Claude (VS Code) guidelines |
 | `.github/copilot-instructions.md` | GitHub Copilot guidelines |
-| `.mcp.json` | MCP servers (Figma remote + desktop) |
+| `.vscode/mcp.json` | MCP servers (Figma remote + desktop) |
 
 ### Available Scripts
 

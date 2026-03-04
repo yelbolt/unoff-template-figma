@@ -6,41 +6,41 @@ You are an expert Figma plugin developer working on a TypeScript/React project.
 
 For comprehensive, detailed documentation, refer to:
 
-**[Architecture & Skills Documentation](.github/skills/README.md)**
+**[Architecture & Skills Documentation](skills/README.md)**
 
 This documentation is organized into four main layers:
 
 ### 📂 Canvas - Figma API Layer
-- **[Figma API](.github/skills/canvas/figma-api.md)** - Node creation, styles, variables, selection, viewport
-- **[Data Storage](.github/skills/canvas/data-storage.md)** - Plugin Data, Shared Plugin Data, Client Storage, migration
+- **[Figma API](skills/canvas/figma-api.md)** - Node creation, styles, variables, selection, viewport
+- **[Data Storage](skills/canvas/data-storage.md)** - Plugin Data, Shared Plugin Data, Client Storage, migration
 
 ### 🌉 Bridge - Communication Layer
-- **[Communication Pattern](.github/skills/bridge/communication-pattern.md)** - Architecture, message flow, type conventions, request-response
-- **[Bridge Functions](.github/skills/bridge/bridge-functions.md)** - Pure functions, loadUI.ts action map, check functions
+- **[Communication Pattern](skills/bridge/communication-pattern.md)** - Architecture, message flow, type conventions, request-response
+- **[Bridge Functions](skills/bridge/bridge-functions.md)** - Pure functions, loadUI.ts action map, check functions
 
 ### ⚙️ Config - Build & Quality Layer
-- **[Global Config](.github/skills/config/global-config.md)** - Config type, sections, env vars, service toggles
-- **[Feature Flags](.github/skills/config/feature-flags.md)** - FeatureStatus, doSpecificMode(), adding features
-- **[Credits System](.github/skills/config/credits-system.md)** - `$creditsCount` atom, `checkCredits.ts`, `limitsMapping`, `isReached()` → `isBlocked` pattern
-- **[Vite Build](.github/skills/config/vite-build.md)** - Dual build, Vite plugins, Preact aliasing
-- **[Code Quality](.github/skills/config/code-quality.md)** - ESLint, Prettier, TypeScript strict, Vitest
+- **[Global Config](skills/config/global-config.md)** - Config type, sections, env vars, service toggles
+- **[Feature Flags](skills/config/feature-flags.md)** - FeatureStatus, doSpecificMode(), adding features
+- **[Credits System](skills/config/credits-system.md)** - `$creditsCount` atom, `checkCredits.ts`, `limitsMapping`, `isReached()` → `isBlocked` pattern
+- **[Vite Build](skills/config/vite-build.md)** - Dual build, Vite plugins, Preact aliasing
+- **[Code Quality](skills/config/code-quality.md)** - ESLint, Prettier, TypeScript strict, Vitest
 
 ### 🎨 UI - Preact Application Layer
-- **[Component Library](.github/skills/ui/component-library.md)** - @unoff/ui guide, FeatureStatus, components
-- **[Component Patterns](.github/skills/ui/component-patterns.md)** - PureComponent, HOCs, BaseProps, createPortal
-- **[External Services](.github/skills/ui/external-services.md)** - Supabase, Sentry, Mixpanel, Tolgee
-- **[State Management](.github/skills/ui/state-management.md)** - Nanostores atoms, Context API, Client Storage sync
-- **[Internationalization](.github/skills/ui/i18n.md)** - Tolgee (UI) + createI18n (Canvas), ICU format
-- **[Types System](.github/skills/ui/types-system.md)** - Type files, BaseProps, unions, RecursiveKeyOf
-- **[Error Handling](.github/skills/ui/error-handling.md)** - try/catch, Sentry, POST_MESSAGE notifications
-- **[CSS & Theming](.github/skills/ui/css-theming.md)** - ThemeContext, CSS modules, tokens, responsive, z-index
-- **[Accessibility](.github/skills/ui/accessibility.md)** - `inert`, portals, keyboard, i18n accessibility
-- **[Performance](.github/skills/ui/performance.md)** - PureComponent, DOM removal, build optimizations
-- **[App Bootstrap](.github/skills/ui/app-bootstrap.md)** - Startup sequence, provider nesting, LOAD_DATA chain
+- **[Component Library](skills/ui/component-library.md)** - @unoff/ui guide, FeatureStatus, components
+- **[Component Patterns](skills/ui/component-patterns.md)** - PureComponent, HOCs, BaseProps, createPortal
+- **[External Services](skills/ui/external-services.md)** - Supabase, Sentry, Mixpanel, Tolgee
+- **[State Management](skills/ui/state-management.md)** - Nanostores atoms, Context API, Client Storage sync
+- **[Internationalization](skills/ui/i18n.md)** - Tolgee (UI) + createI18n (Canvas), ICU format
+- **[Types System](skills/ui/types-system.md)** - Type files, BaseProps, unions, RecursiveKeyOf
+- **[Error Handling](skills/ui/error-handling.md)** - try/catch, Sentry, POST_MESSAGE notifications
+- **[CSS & Theming](skills/ui/css-theming.md)** - ThemeContext, CSS modules, tokens, responsive, z-index
+- **[Accessibility](skills/ui/accessibility.md)** - `inert`, portals, keyboard, i18n accessibility
+- **[Performance](skills/ui/performance.md)** - PureComponent, DOM removal, build optimizations
+- **[App Bootstrap](skills/ui/app-bootstrap.md)** - Startup sequence, provider nesting, LOAD_DATA chain
 
 ### 🔌 Externals
-- **[Implement Design](.github/skills/externals/implement-design)** - Figma spec document → code workflow with annotations, MCP server integration, and unoff-ui component mapping
-- **[Payment Systems](.github/skills/externals/payment-systems.md)** - Figma built-in payments vs Lemon Squeezy — interstitial options, manifest config, license key flow. **Must choose one before shipping**
+- **[Implement Design](skills/externals/implement-design)** - Figma spec document → code workflow with annotations, MCP server integration, and unoff-ui component mapping
+- **[Payment Systems](skills/externals/payment-systems.md)** - Figma built-in payments vs Lemon Squeezy — interstitial options, manifest config, license key flow. **Must choose one before shipping**
 
 ## Quick Reference
 
@@ -183,12 +183,12 @@ VITE_MIXPANEL_TOKEN=xxxxx
 - Singleton pattern for external service clients
 - Build: `viteSingleFile` (zero network requests), platform CSS stripping
 - Batch Figma operations when possible
-- See [Performance Guide](.github/skills/ui/performance.md) for full patterns
+- See [Performance Guide](skills/ui/performance.md) for full patterns
 
 ## Additional Resources
 
 - **[Architecture Documentation](ARCHITECTURE.md)** - System architecture overview
-- **[Skills Documentation](.github/skills/README.md)** - Comprehensive implementation guides
+- **[Skills Documentation](skills/README.md)** - Comprehensive implementation guides
 
 ---
 

@@ -9,14 +9,14 @@ description: Core project rules for {{ pluginName }} Figma plugin development
 
 **For comprehensive patterns, code examples, and best practices, always refer to:**
 
-**[Architecture & Skills Documentation](.github/skills/README.md)**
+**[Architecture & Skills Documentation](skills/README.md)**
 
 **Quick links**:
-- **Canvas**: [Figma API](.github/skills/canvas/figma-api.md) • [Data Storage](.github/skills/canvas/data-storage.md)
-- **Bridge**: [Communication Pattern](.github/skills/bridge/communication-pattern.md) • [Bridge Functions](.github/skills/bridge/bridge-functions.md)
-- **Config**: [Global Config](.github/skills/config/global-config.md) • [Feature Flags](.github/skills/config/feature-flags.md) • [Credits System](.github/skills/config/credits-system.md) • [Vite Build](.github/skills/config/vite-build.md) • [Code Quality](.github/skills/config/code-quality.md)
-- **UI**: [Component Library](.github/skills/ui/component-library.md) • [Component Patterns](.github/skills/ui/component-patterns.md) • [External Services](.github/skills/ui/external-services.md) • [State Management](.github/skills/ui/state-management.md) • [i18n](.github/skills/ui/i18n.md) • [Types System](.github/skills/ui/types-system.md) • [Error Handling](.github/skills/ui/error-handling.md) • [CSS & Theming](.github/skills/ui/css-theming.md) • [Accessibility](.github/skills/ui/accessibility.md) • [Performance](.github/skills/ui/performance.md) • [App Bootstrap](.github/skills/ui/app-bootstrap.md)
-- **Externals**: [Implement Design](.github/skills/externals/implement-design) — Figma spec document → code workflow (annotations, MCP, unoff-ui) • [Payment Systems](.github/skills/externals/payment-systems.md) — Figma built-in vs Lemon Squeezy, must choose one
+- **Canvas**: [Figma API](skills/canvas/figma-api.md) • [Data Storage](skills/canvas/data-storage.md)
+- **Bridge**: [Communication Pattern](skills/bridge/communication-pattern.md) • [Bridge Functions](skills/bridge/bridge-functions.md)
+- **Config**: [Global Config](skills/config/global-config.md) • [Feature Flags](skills/config/feature-flags.md) • [Credits System](skills/config/credits-system.md) • [Vite Build](skills/config/vite-build.md) • [Code Quality](skills/config/code-quality.md)
+- **UI**: [Component Library](skills/ui/component-library.md) • [Component Patterns](skills/ui/component-patterns.md) • [External Services](skills/ui/external-services.md) • [State Management](skills/ui/state-management.md) • [i18n](skills/ui/i18n.md) • [Types System](skills/ui/types-system.md) • [Error Handling](skills/ui/error-handling.md) • [CSS & Theming](skills/ui/css-theming.md) • [Accessibility](skills/ui/accessibility.md) • [Performance](skills/ui/performance.md) • [App Bootstrap](skills/ui/app-bootstrap.md)
+- **Externals**: [Implement Design](skills/externals/implement-design) — Figma spec document → code workflow (annotations, MCP, unoff-ui) • [Payment Systems](skills/externals/payment-systems.md) — Figma built-in vs Lemon Squeezy, must choose one
 
 ---
 
@@ -109,7 +109,7 @@ static features = (planStatus, config, service, editor) => ({
 })
 ```
 
-See [Component Library](.github/skills/ui/component-library.md) for complete examples.
+See [Component Library](skills/ui/component-library.md) for complete examples.
 
 ## Tech Stack
 - TypeScript (strict mode) + Preact (aliased via preact/compat) + Vite
@@ -178,11 +178,11 @@ See [Component Library](.github/skills/ui/component-library.md) for complete exa
 - Conditional service init (Sentry/Mixpanel only in production)
 - Build: `viteSingleFile` (zero network requests), platform CSS stripping
 - Batch Figma operations
-- See [Performance Guide](.github/skills/ui/performance.md)
+- See [Performance Guide](skills/ui/performance.md)
 
 ## Additional Resources
 - [Architecture Documentation](ARCHITECTURE.md)
-- [Skills Documentation](.github/skills/README.md)
+- [Skills Documentation](skills/README.md)
 
 ---
 
