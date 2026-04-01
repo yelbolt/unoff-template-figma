@@ -71,16 +71,24 @@ export default class Preferences extends PureComponent<PreferencesProps> {
           pin="RIGHT"
           onClose={this.props.onClose}
         >
-          <List
-            padding={padding}
-            isFullWidth
-            isFullHeight={this.props.documentWidth <= 460}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              flex: 1,
+            }}
           >
-            <LangPreferences
-              {...this.props}
-              isLast={true}
-            />
-          </List>
+            <List
+              padding={padding}
+              isFullWidth
+              isFullHeight
+            >
+              <LangPreferences
+                {...this.props}
+                isLast={true}
+              />
+            </List>
+          </div>
         </Dialog>
       </Feature>
     )

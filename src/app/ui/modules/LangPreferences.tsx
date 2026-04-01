@@ -196,6 +196,7 @@ export default class LangPreferences extends PureComponent<
                       this.props.service,
                       this.props.editor
                     ).USER_LANGUAGE.isNew()}
+                    isFill
                   />
                 </FormItem>
               ),
