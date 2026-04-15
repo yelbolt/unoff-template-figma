@@ -4,40 +4,40 @@
 
 **For comprehensive implementation guides, always refer to:**
 
-**[Architecture & Skills Documentation](skills/README.md)**
+**[Architecture & Skills Documentation](.claude/skills/unoff-create-plugin/README.md)**
 
 ### Documentation by Layer
 
 **📂 Canvas** - Figma API operations
-- [Figma API](skills/canvas/figma-api.md)
-- [Data Storage](skills/canvas/data-storage.md)
+- [Figma API](.claude/skills/unoff-create-plugin/canvas/figma-api.md)
+- [Data Storage](.claude/skills/unoff-create-plugin/canvas/data-storage.md)
 
 **🌉 Bridge** - Communication layer
-- [Communication Pattern](skills/bridge/communication-pattern.md)
-- [Bridge Functions](skills/bridge/bridge-functions.md)
+- [Communication Pattern](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md)
+- [Bridge Functions](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md)
 
 **⚙️ Config** - Build & quality
-- [Global Config](skills/config/global-config.md)
-- [Feature Flags](skills/config/feature-flags.md)
-- [Credits System](skills/config/credits-system.md)
-- [Vite Build](skills/config/vite-build.md)
-- [Code Quality](skills/config/code-quality.md)
+- [Global Config](.claude/skills/unoff-create-plugin/config/global-config.md)
+- [Feature Flags](.claude/skills/unoff-create-plugin/config/feature-flags.md)
+- [Credits System](.claude/skills/unoff-create-plugin/config/credits-system.md)
+- [Vite Build](.claude/skills/unoff-create-plugin/config/vite-build.md)
+- [Code Quality](.claude/skills/unoff-create-plugin/config/code-quality.md)
 
 **🎨 UI** - Preact application
-- [Component Library](skills/ui/component-library.md)
-- [Component Patterns](skills/ui/component-patterns.md)
-- [External Services](skills/ui/external-services.md)
-- [State Management](skills/ui/state-management.md)
-- [Internationalization](skills/ui/i18n.md)
-- [Types System](skills/ui/types-system.md)
-- [Error Handling](skills/ui/error-handling.md)
-- [CSS & Theming](skills/ui/css-theming.md)
-- [Accessibility](skills/ui/accessibility.md)
-- [Performance](skills/ui/performance.md)
-- [App Bootstrap](skills/ui/app-bootstrap.md)
+- [Component Library](.claude/skills/unoff-create-plugin/ui/component-library.md)
+- [Component Patterns](.claude/skills/unoff-create-plugin/ui/component-patterns.md)
+- [External Services](.claude/skills/unoff-create-plugin/ui/external-services.md)
+- [State Management](.claude/skills/unoff-create-plugin/ui/state-management.md)
+- [Internationalization](.claude/skills/unoff-create-plugin/ui/i18n.md)
+- [Types System](.claude/skills/unoff-create-plugin/ui/types-system.md)
+- [Error Handling](.claude/skills/unoff-create-plugin/ui/error-handling.md)
+- [CSS & Theming](.claude/skills/unoff-create-plugin/ui/css-theming.md)
+- [Accessibility](.claude/skills/unoff-create-plugin/ui/accessibility.md)
+- [Performance](.claude/skills/unoff-create-plugin/ui/performance.md)
+- [App Bootstrap](.claude/skills/unoff-create-plugin/ui/app-bootstrap.md)
 **🔌 Externals**
-- [Implement Design](skills/externals/implement-design) — Figma spec document → code workflow (annotations, MCP, unoff-ui)
-- [Payment Systems](skills/externals/payment-systems.md) — Figma built-in payments vs Lemon Squeezy — interstitial options, license key flow. **Must choose one before shipping**
+- [Implement Design](.claude/skills/unoff-create-plugin/externals/implement-design) — Figma spec document → code workflow (annotations, MCP, unoff-ui)
+- [Payment Systems](.claude/skills/unoff-create-plugin/externals/payment-systems.md) — Figma built-in payments vs Lemon Squeezy — interstitial options, license key flow. **Must choose one before shipping**
 
 ---
 
@@ -60,7 +60,7 @@ This is a Figma plugin built with TypeScript, Preact (aliased via preact/compat)
 
 **Subdirectories**: `/checks/` (validations), `/plans/` (subscriptions)
 
-**See**: [Figma API Guide](skills/canvas/figma-api.md) • [Bridge Functions](skills/bridge/bridge-functions.md)
+**See**: [Figma API Guide](.claude/skills/unoff-create-plugin/canvas/figma-api.md) • [Bridge Functions](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md)
 
 ### `/src/app/` - React UI Application
 
@@ -82,7 +82,7 @@ This is a Figma plugin built with TypeScript, Preact (aliased via preact/compat)
 - **`utils/`** - UI utilities
   - **`pluginMessage.ts`** ⭐ - UI → Canvas communication
 
-**See**: [Component Library](skills/ui/component-library.md) • [Component Patterns](skills/ui/component-patterns.md) • [State Management](skills/ui/state-management.md)
+**See**: [Component Library](.claude/skills/unoff-create-plugin/ui/component-library.md) • [Component Patterns](.claude/skills/unoff-create-plugin/ui/component-patterns.md) • [State Management](.claude/skills/unoff-create-plugin/ui/state-management.md)
 
 ### `/src/utils/` - Global Utilities
 Shared utilities (`i18n.ts`, `setData.ts`)
@@ -110,7 +110,7 @@ static features = (planStatus, config, service, editor) => ({
 // Methods: .isActive() .isBlocked() .isReached(count) .isNew()
 ```
 
-**For complete component examples and patterns** → [Component Library](skills/ui/component-library.md)
+**For complete component examples and patterns** → [Component Library](.claude/skills/unoff-create-plugin/ui/component-library.md)
 
 ## Communication Pattern: UI ↔ Canvas
 
@@ -146,7 +146,7 @@ useEffect(() => {
 - UI → Canvas: `VERB_NOUN` (e.g., `CREATE_NODE`)
 - Canvas → UI: `NOUN_PAST_TENSE` (e.g., `NODE_CREATED`)
 
-**For complete communication patterns** → [Communication Pattern](skills/bridge/communication-pattern.md)
+**For complete communication patterns** → [Communication Pattern](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md)
 
 ## External Services
 
@@ -160,7 +160,7 @@ useEffect(() => {
 - **Mixpanel**: `/src/app/external/tracking/` - Env: `VITE_MIXPANEL_TOKEN`
 {{/isMixpanelEnabled}}
 
-**For complete setup guides** → [External Services](skills/ui/external-services.md)
+**For complete setup guides** → [External Services](.claude/skills/unoff-create-plugin/ui/external-services.md)
 
 ## Code Style Guidelines
 
@@ -200,7 +200,7 @@ useEffect(() => {
 - Singleton pattern for external service clients
 - Build: `viteSingleFile` (zero network requests), platform CSS stripping
 - Batch Figma operations
-- See [Performance Guide](skills/ui/performance.md) for full patterns
+- See [Performance Guide](.claude/skills/unoff-create-plugin/ui/performance.md) for full patterns
 
 ---
 

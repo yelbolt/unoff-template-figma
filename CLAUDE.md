@@ -6,41 +6,41 @@ You are an expert Figma plugin developer working on a TypeScript/React project.
 
 For comprehensive, detailed documentation, refer to:
 
-**[Architecture & Skills Documentation](skills/README.md)**
+**[Architecture & Skills Documentation](.claude/skills/unoff-create-plugin/README.md)**
 
 This documentation is organized into four main layers:
 
 ### 📂 Canvas - Figma API Layer
-- **[Figma API](skills/canvas/figma-api.md)** - Node creation, styles, variables, selection, viewport
-- **[Data Storage](skills/canvas/data-storage.md)** - Plugin Data, Shared Plugin Data, Client Storage, migration
+- **[Figma API](.claude/skills/unoff-create-plugin/canvas/figma-api.md)** - Node creation, styles, variables, selection, viewport
+- **[Data Storage](.claude/skills/unoff-create-plugin/canvas/data-storage.md)** - Plugin Data, Shared Plugin Data, Client Storage, migration
 
 ### 🌉 Bridge - Communication Layer
-- **[Communication Pattern](skills/bridge/communication-pattern.md)** - Architecture, message flow, type conventions, request-response
-- **[Bridge Functions](skills/bridge/bridge-functions.md)** - Pure functions, loadUI.ts action map, check functions
+- **[Communication Pattern](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md)** - Architecture, message flow, type conventions, request-response
+- **[Bridge Functions](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md)** - Pure functions, loadUI.ts action map, check functions
 
 ### ⚙️ Config - Build & Quality Layer
-- **[Global Config](skills/config/global-config.md)** - Config type, sections, env vars, service toggles
-- **[Feature Flags](skills/config/feature-flags.md)** - FeatureStatus, doSpecificMode(), adding features
-- **[Credits System](skills/config/credits-system.md)** - `$creditsCount` atom, `checkCredits.ts`, `limitsMapping`, `isReached()` → `isBlocked` pattern
-- **[Vite Build](skills/config/vite-build.md)** - Dual build, Vite plugins, Preact aliasing
-- **[Code Quality](skills/config/code-quality.md)** - ESLint, Prettier, TypeScript strict, Vitest
+- **[Global Config](.claude/skills/unoff-create-plugin/config/global-config.md)** - Config type, sections, env vars, service toggles
+- **[Feature Flags](.claude/skills/unoff-create-plugin/config/feature-flags.md)** - FeatureStatus, doSpecificMode(), adding features
+- **[Credits System](.claude/skills/unoff-create-plugin/config/credits-system.md)** - `$creditsCount` atom, `checkCredits.ts`, `limitsMapping`, `isReached()` → `isBlocked` pattern
+- **[Vite Build](.claude/skills/unoff-create-plugin/config/vite-build.md)** - Dual build, Vite plugins, Preact aliasing
+- **[Code Quality](.claude/skills/unoff-create-plugin/config/code-quality.md)** - ESLint, Prettier, TypeScript strict, Vitest
 
 ### 🎨 UI - Preact Application Layer
-- **[Component Library](skills/ui/component-library.md)** - @unoff/ui guide, FeatureStatus, components
-- **[Component Patterns](skills/ui/component-patterns.md)** - PureComponent, HOCs, BaseProps, createPortal
-- **[External Services](skills/ui/external-services.md)** - Supabase, Sentry, Mixpanel, Tolgee
-- **[State Management](skills/ui/state-management.md)** - Nanostores atoms, Context API, Client Storage sync
-- **[Internationalization](skills/ui/i18n.md)** - Tolgee (UI) + createI18n (Canvas), ICU format
-- **[Types System](skills/ui/types-system.md)** - Type files, BaseProps, unions, RecursiveKeyOf
-- **[Error Handling](skills/ui/error-handling.md)** - try/catch, Sentry, POST_MESSAGE notifications
-- **[CSS & Theming](skills/ui/css-theming.md)** - ThemeContext, CSS modules, tokens, responsive, z-index
-- **[Accessibility](skills/ui/accessibility.md)** - `inert`, portals, keyboard, i18n accessibility
-- **[Performance](skills/ui/performance.md)** - PureComponent, DOM removal, build optimizations
-- **[App Bootstrap](skills/ui/app-bootstrap.md)** - Startup sequence, provider nesting, LOAD_DATA chain
+- **[Component Library](.claude/skills/unoff-create-plugin/ui/component-library.md)** - @unoff/ui guide, FeatureStatus, components
+- **[Component Patterns](.claude/skills/unoff-create-plugin/ui/component-patterns.md)** - PureComponent, HOCs, BaseProps, createPortal
+- **[External Services](.claude/skills/unoff-create-plugin/ui/external-services.md)** - Supabase, Sentry, Mixpanel, Tolgee
+- **[State Management](.claude/skills/unoff-create-plugin/ui/state-management.md)** - Nanostores atoms, Context API, Client Storage sync
+- **[Internationalization](.claude/skills/unoff-create-plugin/ui/i18n.md)** - Tolgee (UI) + createI18n (Canvas), ICU format
+- **[Types System](.claude/skills/unoff-create-plugin/ui/types-system.md)** - Type files, BaseProps, unions, RecursiveKeyOf
+- **[Error Handling](.claude/skills/unoff-create-plugin/ui/error-handling.md)** - try/catch, Sentry, POST_MESSAGE notifications
+- **[CSS & Theming](.claude/skills/unoff-create-plugin/ui/css-theming.md)** - ThemeContext, CSS modules, tokens, responsive, z-index
+- **[Accessibility](.claude/skills/unoff-create-plugin/ui/accessibility.md)** - `inert`, portals, keyboard, i18n accessibility
+- **[Performance](.claude/skills/unoff-create-plugin/ui/performance.md)** - PureComponent, DOM removal, build optimizations
+- **[App Bootstrap](.claude/skills/unoff-create-plugin/ui/app-bootstrap.md)** - Startup sequence, provider nesting, LOAD_DATA chain
 
 ### 🔌 Externals
-- **[Implement Design](skills/externals/implement-design)** - Figma spec document → code workflow with annotations, MCP server integration, and unoff-ui component mapping
-- **[Payment Systems](skills/externals/payment-systems.md)** - Figma built-in payments vs Lemon Squeezy — interstitial options, manifest config, license key flow. **Must choose one before shipping**
+- **[Implement Design](.claude/skills/unoff-create-plugin/externals/implement-design)** - Figma spec document → code workflow with annotations, MCP server integration, and unoff-ui component mapping
+- **[Payment Systems](.claude/skills/unoff-create-plugin/externals/payment-systems.md)** - Figma built-in payments vs Lemon Squeezy — interstitial options, manifest config, license key flow. **Must choose one before shipping**
 
 ## Quick Reference
 
@@ -183,12 +183,12 @@ VITE_MIXPANEL_TOKEN=xxxxx
 - Singleton pattern for external service clients
 - Build: `viteSingleFile` (zero network requests), platform CSS stripping
 - Batch Figma operations when possible
-- See [Performance Guide](skills/ui/performance.md) for full patterns
+- See [Performance Guide](.claude/skills/unoff-create-plugin/ui/performance.md) for full patterns
 
 ## Additional Resources
 
 - **[Architecture Documentation](ARCHITECTURE.md)** - System architecture overview
-- **[Skills Documentation](skills/README.md)** - Comprehensive implementation guides
+- **[Skills Documentation](.claude/skills/unoff-create-plugin/README.md)** - Comprehensive implementation guides
 
 ---
 

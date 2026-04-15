@@ -8,15 +8,15 @@ This template is a Figma plugin built with **TypeScript**, **Preact** (aliased a
 
 For detailed documentation and implementation guides, see:
 
-**[Architecture & Skills Documentation](skills/README.md)**
+**[Architecture & Skills Documentation](.claude/skills/unoff-create-plugin/README.md)**
 
 The documentation is organized into five layers:
 
-- **Canvas** — Figma API operations ([figma-api.md](skills/canvas/figma-api.md), [data-storage.md](skills/canvas/data-storage.md))
-- **Bridge** — UI ↔ Canvas communication ([communication-pattern.md](skills/bridge/communication-pattern.md), [bridge-functions.md](skills/bridge/bridge-functions.md))
-- **Config** — Feature flags, credits, build system ([global-config.md](skills/config/global-config.md), [feature-flags.md](skills/config/feature-flags.md), [vite-build.md](skills/config/vite-build.md))
-- **UI** — Preact application ([component-library.md](skills/ui/component-library.md), [component-patterns.md](skills/ui/component-patterns.md), [external-services.md](skills/ui/external-services.md), [state-management.md](skills/ui/state-management.md), [i18n.md](skills/ui/i18n.md))
-- **Externals** — Integration workflows ([payment-systems.md](skills/externals/payment-systems.md))
+- **Canvas** — Figma API operations ([figma-api.md](.claude/skills/unoff-create-plugin/canvas/figma-api.md), [data-storage.md](.claude/skills/unoff-create-plugin/canvas/data-storage.md))
+- **Bridge** — UI ↔ Canvas communication ([communication-pattern.md](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md), [bridge-functions.md](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md))
+- **Config** — Feature flags, credits, build system ([global-config.md](.claude/skills/unoff-create-plugin/config/global-config.md), [feature-flags.md](.claude/skills/unoff-create-plugin/config/feature-flags.md), [vite-build.md](.claude/skills/unoff-create-plugin/config/vite-build.md))
+- **UI** — Preact application ([component-library.md](.claude/skills/unoff-create-plugin/ui/component-library.md), [component-patterns.md](.claude/skills/unoff-create-plugin/ui/component-patterns.md), [external-services.md](.claude/skills/unoff-create-plugin/ui/external-services.md), [state-management.md](.claude/skills/unoff-create-plugin/ui/state-management.md), [i18n.md](.claude/skills/unoff-create-plugin/ui/i18n.md))
+- **Externals** — Integration workflows ([payment-systems.md](.claude/skills/unoff-create-plugin/externals/payment-systems.md))
 
 ### AI Tools Configuration
 
@@ -30,7 +30,7 @@ This project is configured to work with all major AI development tools:
 | **Claude (VS Code)** | `.claude/settings.json` | Configuration for Claude in VS Code |
 | **Figma MCP** | `.vscode/mcp.json` `.cursor/mcp.json` `.windsurf/mcp.json` | MCP servers for Figma design-to-code |
 
-All these files reference the full documentation in `skills/` as a single source of truth.
+All these files reference the full documentation in `.claude/skills/unoff-create-plugin/` as a single source of truth.
 
 ---
 
@@ -40,35 +40,37 @@ All these files reference the full documentation in `skills/` as a single source
 {{ pluginName }}/
 ├── .github/                    # GitHub configuration
 │   ├── copilot-instructions.md # GitHub Copilot guidelines
-│   ├── skills/                 # Detailed documentation by layer
-│   │   ├── README.md           # Documentation index
-│   │   ├── canvas/             # Canvas layer
-│   │   │   ├── figma-api.md
-│   │   │   └── data-storage.md
-│   │   ├── bridge/             # Bridge layer
-│   │   │   ├── communication-pattern.md
-│   │   │   └── bridge-functions.md
-│   │   ├── config/             # Config & build layer
-│   │   │   ├── global-config.md
-│   │   │   ├── feature-flags.md
-│   │   │   ├── credits-system.md
-│   │   │   ├── vite-build.md
-│   │   │   └── code-quality.md
-│   │   ├── ui/                 # UI layer
-│   │   │   ├── component-library.md
-│   │   │   ├── component-patterns.md
-│   │   │   ├── external-services.md
-│   │   │   ├── state-management.md
-│   │   │   ├── i18n.md
-│   │   │   ├── types-system.md
-│   │   │   ├── error-handling.md
-│   │   │   ├── css-theming.md
-│   │   │   ├── accessibility.md
-│   │   │   ├── performance.md
-│   │   │   └── app-bootstrap.md
-│   │   └── externals/          # External integrations
-│   │       ├── implement-design # Figma spec → code workflow
-│   │       └── payment-systems.md
+├── .claude/
+│   └── skills/
+│       └── unoff-create-plugin/  # Detailed documentation by layer
+│           ├── README.md           # Documentation index
+│           ├── canvas/             # Canvas layer
+│           │   ├── figma-api.md
+│           │   └── data-storage.md
+│           ├── bridge/             # Bridge layer
+│           │   ├── communication-pattern.md
+│           │   └── bridge-functions.md
+│           ├── config/             # Config & build layer
+│           │   ├── global-config.md
+│           │   ├── feature-flags.md
+│           │   ├── credits-system.md
+│           │   ├── vite-build.md
+│           │   └── code-quality.md
+│           ├── ui/                 # UI layer
+│           │   ├── component-library.md
+│           │   ├── component-patterns.md
+│           │   ├── external-services.md
+│           │   ├── state-management.md
+│           │   ├── i18n.md
+│           │   ├── types-system.md
+│           │   ├── error-handling.md
+│           │   ├── css-theming.md
+│           │   ├── accessibility.md
+│           │   ├── performance.md
+│           │   └── app-bootstrap.md
+│           └── externals/          # External integrations
+│               ├── implement-design # Figma spec → code workflow
+│               └── payment-systems.md
 │   ├── CODEOWNERS             # Code ownership
 │   ├── ISSUE_TEMPLATE/        # Issue templates
 │   └── workflows/             # CI/CD workflows

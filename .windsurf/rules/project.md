@@ -9,14 +9,14 @@ description: Core project rules for {{ pluginName }} Figma plugin development
 
 **For comprehensive patterns, code examples, and best practices, always refer to:**
 
-**[Architecture & Skills Documentation](skills/README.md)**
+**[Architecture & Skills Documentation](.claude/skills/unoff-create-plugin/README.md)**
 
 **Quick links**:
-- **Canvas**: [Figma API](skills/canvas/figma-api.md) • [Data Storage](skills/canvas/data-storage.md)
-- **Bridge**: [Communication Pattern](skills/bridge/communication-pattern.md) • [Bridge Functions](skills/bridge/bridge-functions.md)
-- **Config**: [Global Config](skills/config/global-config.md) • [Feature Flags](skills/config/feature-flags.md) • [Credits System](skills/config/credits-system.md) • [Vite Build](skills/config/vite-build.md) • [Code Quality](skills/config/code-quality.md)
-- **UI**: [Component Library](skills/ui/component-library.md) • [Component Patterns](skills/ui/component-patterns.md) • [External Services](skills/ui/external-services.md) • [State Management](skills/ui/state-management.md) • [i18n](skills/ui/i18n.md) • [Types System](skills/ui/types-system.md) • [Error Handling](skills/ui/error-handling.md) • [CSS & Theming](skills/ui/css-theming.md) • [Accessibility](skills/ui/accessibility.md) • [Performance](skills/ui/performance.md) • [App Bootstrap](skills/ui/app-bootstrap.md)
-- **Externals**: [Implement Design](skills/externals/implement-design) — Figma spec document → code workflow (annotations, MCP, unoff-ui) • [Payment Systems](skills/externals/payment-systems.md) — Figma built-in vs Lemon Squeezy, must choose one
+- **Canvas**: [Figma API](.claude/skills/unoff-create-plugin/canvas/figma-api.md) • [Data Storage](.claude/skills/unoff-create-plugin/canvas/data-storage.md)
+- **Bridge**: [Communication Pattern](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md) • [Bridge Functions](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md)
+- **Config**: [Global Config](.claude/skills/unoff-create-plugin/config/global-config.md) • [Feature Flags](.claude/skills/unoff-create-plugin/config/feature-flags.md) • [Credits System](.claude/skills/unoff-create-plugin/config/credits-system.md) • [Vite Build](.claude/skills/unoff-create-plugin/config/vite-build.md) • [Code Quality](.claude/skills/unoff-create-plugin/config/code-quality.md)
+- **UI**: [Component Library](.claude/skills/unoff-create-plugin/ui/component-library.md) • [Component Patterns](.claude/skills/unoff-create-plugin/ui/component-patterns.md) • [External Services](.claude/skills/unoff-create-plugin/ui/external-services.md) • [State Management](.claude/skills/unoff-create-plugin/ui/state-management.md) • [i18n](.claude/skills/unoff-create-plugin/ui/i18n.md) • [Types System](.claude/skills/unoff-create-plugin/ui/types-system.md) • [Error Handling](.claude/skills/unoff-create-plugin/ui/error-handling.md) • [CSS & Theming](.claude/skills/unoff-create-plugin/ui/css-theming.md) • [Accessibility](.claude/skills/unoff-create-plugin/ui/accessibility.md) • [Performance](.claude/skills/unoff-create-plugin/ui/performance.md) • [App Bootstrap](.claude/skills/unoff-create-plugin/ui/app-bootstrap.md)
+- **Externals**: [Implement Design](.claude/skills/unoff-create-plugin/externals/implement-design) — Figma spec document → code workflow (annotations, MCP, unoff-ui) • [Payment Systems](.claude/skills/unoff-create-plugin/externals/payment-systems.md) — Figma built-in vs Lemon Squeezy, must choose one
 
 ---
 
@@ -109,7 +109,7 @@ static features = (planStatus, config, service, editor) => ({
 })
 ```
 
-See [Component Library](skills/ui/component-library.md) for complete examples.
+See [Component Library](.claude/skills/unoff-create-plugin/ui/component-library.md) for complete examples.
 
 ## Tech Stack
 - TypeScript (strict mode) + Preact (aliased via preact/compat) + Vite
@@ -178,11 +178,11 @@ See [Component Library](skills/ui/component-library.md) for complete examples.
 - Conditional service init (Sentry/Mixpanel only in production)
 - Build: `viteSingleFile` (zero network requests), platform CSS stripping
 - Batch Figma operations
-- See [Performance Guide](skills/ui/performance.md)
+- See [Performance Guide](.claude/skills/unoff-create-plugin/ui/performance.md)
 
 ## Additional Resources
 - [Architecture Documentation](ARCHITECTURE.md)
-- [Skills Documentation](skills/README.md)
+- [Skills Documentation](.claude/skills/unoff-create-plugin/README.md)
 
 ---
 
