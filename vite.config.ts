@@ -49,8 +49,8 @@ export default defineConfig(({ mode }) => {
       ...(!isDev
         ? [
             sentryVitePlugin({
-              org: 'yelbolt',
-              project: 'ui-color-palette',
+              org: env.SENTRY_ORG,
+              project: env.SENTRY_PROJECT,
               authToken: env.SENTRY_AUTH_TOKEN,
               sourcemaps: {
                 assets: './dist/**',

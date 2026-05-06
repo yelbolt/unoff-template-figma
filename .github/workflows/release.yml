@@ -41,6 +41,9 @@ jobs:
         echo VITE_TOLGEE_API_KEY="${{ secrets.VITE_TOLGEE_API_KEY }}" >> .env.local
         cat .env.local
         touch .env.sentry-build-plugin
+        echo SENTRY_ORG="${{ vars.SENTRY_ORG }}" >> .env.sentry-build-plugin
+        echo SENTRY_PROJECT="${{ vars.SENTRY_PROJECT }}" >> .env.sentry-build-plugin
+        echo SENTRY_AUTH_TOKEN="${{ secrets.SENTRY_AUTH_TOKEN }}" >> .env.sentry-build-plugin
         echo SENTRY_AUTH_TOKEN="${{ secrets.SENTRY_AUTH_TOKEN }}" >> .env.sentry-build-plugin
         cat .env.sentry-build-plugin
 
