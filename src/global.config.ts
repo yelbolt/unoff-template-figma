@@ -48,7 +48,8 @@ const globalConfig: Config = {
   },
   urls: {
     authWorkerUrl: import.meta.env.VITE_AUTH_WORKER_URL as string,
-    announcementsWorkerUrl: import.meta.env.VITE_ANNOUNCEMENTS_WORKER_URL as string,
+    announcementsWorkerUrl: import.meta.env
+      .VITE_ANNOUNCEMENTS_WORKER_URL as string,
     corsWorkerUrl: import.meta.env.VITE_CORS_WORKER_URL as string,
     databaseUrl: import.meta.env.VITE_SUPABASE_URL as string,
     authUrl: import.meta.env.VITE_AUTH_URL as string,
@@ -75,15 +76,19 @@ const globalConfig: Config = {
     pluginVersion: __APP_VERSION__,
     creditsVersion: '2025.12',
   },
-  features: doSpecificMode([
-    // Desactivated features
-  ], [
-    // Pro features
-    'ADD_ITEM',
-  ], [
-    // New features
-    'MY_FIRST_CONTEXT_SUBCONTEXT_C',
-  ]),
+  features: doSpecificMode(
+    [
+      // Desactivated features
+    ],
+    [
+      // Pro features
+      'ADD_ITEM',
+    ],
+    [
+      // New features
+      'MY_FIRST_CONTEXT_SUBCONTEXT_C',
+    ]
+  ),
   lang: 'en-US',
   fees: {
     myFee: 50,

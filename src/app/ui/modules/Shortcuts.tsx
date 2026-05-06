@@ -483,12 +483,14 @@ export default class Shortcuts extends PureComponent<
                             {
                               label: this.props.t('user.signIn'),
                               type: 'OPTION' as const,
-                              isActive: Shortcuts.features(
-                                this.props.planStatus,
-                                this.props.config,
-                                this.props.service,
-                                this.props.editor
-                              ).AUTHENTICATION.isActive() && this.props.config.env.isSupabaseEnabled,
+                              isActive:
+                                Shortcuts.features(
+                                  this.props.planStatus,
+                                  this.props.config,
+                                  this.props.service,
+                                  this.props.editor
+                                ).AUTHENTICATION.isActive() &&
+                                this.props.config.env.isSupabaseEnabled,
                               isBlocked: Shortcuts.features(
                                 this.props.planStatus,
                                 this.props.config,
@@ -666,12 +668,14 @@ export default class Shortcuts extends PureComponent<
                     {
                       label: this.props.t('shortcuts.news'),
                       type: 'OPTION',
-                      isActive: Shortcuts.features(
-                        this.props.planStatus,
-                        this.props.config,
-                        this.props.service,
-                        this.props.editor
-                      ).HELP_ANNOUNCEMENTS.isActive() && this.props.config.env.isNotionEnabled,
+                      isActive:
+                        Shortcuts.features(
+                          this.props.planStatus,
+                          this.props.config,
+                          this.props.service,
+                          this.props.editor
+                        ).HELP_ANNOUNCEMENTS.isActive() &&
+                        this.props.config.env.isNotionEnabled,
                       isBlocked: Shortcuts.features(
                         this.props.planStatus,
                         this.props.config,
@@ -691,12 +695,14 @@ export default class Shortcuts extends PureComponent<
                     {
                       label: this.props.t('shortcuts.onboarding'),
                       type: 'OPTION',
-                      isActive: Shortcuts.features(
-                        this.props.planStatus,
-                        this.props.config,
-                        this.props.service,
-                        this.props.editor
-                      ).HELP_ONBOARDING.isActive() && this.props.config.env.isNotionEnabled,
+                      isActive:
+                        Shortcuts.features(
+                          this.props.planStatus,
+                          this.props.config,
+                          this.props.service,
+                          this.props.editor
+                        ).HELP_ONBOARDING.isActive() &&
+                        this.props.config.env.isNotionEnabled,
                       isBlocked: Shortcuts.features(
                         this.props.planStatus,
                         this.props.config,

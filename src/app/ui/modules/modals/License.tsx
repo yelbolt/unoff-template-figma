@@ -37,10 +37,7 @@ interface LicenseState {
   userInstanceName: string
 }
 
-export default class License extends PureComponent<
-  LicenseProps,
-  LicenseState
-> {
+export default class License extends PureComponent<LicenseProps, LicenseState> {
   private theme: string | null
 
   static features = (
@@ -378,7 +375,8 @@ export default class License extends PureComponent<
                   isAutoFocus
                   onChange={(e) =>
                     this.setState({
-                      userLicenseKey: (e.target as HTMLInputElement)?.value ?? '',
+                      userLicenseKey:
+                        (e.target as HTMLInputElement)?.value ?? '',
                     })
                   }
                 />
@@ -399,7 +397,8 @@ export default class License extends PureComponent<
                   placeholder={this.props.t('user.license.name.placeholder')}
                   onChange={(e) =>
                     this.setState({
-                      userInstanceName: (e.target as HTMLInputElement)?.value ?? '',
+                      userInstanceName:
+                        (e.target as HTMLInputElement)?.value ?? '',
                     })
                   }
                 />

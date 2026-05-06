@@ -235,13 +235,13 @@ export default class Pricing extends PureComponent<PricingProps, PricingState> {
         shouldFill
         action={() => {
           sendPluginMessage(
-                {
-                  pluginMessage: {
-                    type: 'GET_LICENSE',
-                  },
-                },
-                '*'
-              )
+            {
+              pluginMessage: {
+                type: 'GET_LICENSE',
+              },
+            },
+            '*'
+          )
         }}
       />
     )

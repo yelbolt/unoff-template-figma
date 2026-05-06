@@ -270,10 +270,7 @@ export default class PlanControls extends PureComponent<
         action={() => {
           this.props.config.plan.isTrialEnabled
             ? sendPluginMessage({ pluginMessage: { type: 'GET_TRIAL' } }, '*')
-            : sendPluginMessage(
-                { pluginMessage: { type: 'GET_PRO' } },
-                '*'
-              )
+            : sendPluginMessage({ pluginMessage: { type: 'GET_PRO' } }, '*')
         }}
       />
       <this.RemainingCredits />

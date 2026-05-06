@@ -750,7 +750,8 @@ class App extends Component<AppProps, AppState> {
         >
           <Feature
             isActive={
-              this.features.MY_SERVICE.isActive() && this.state.service === 'MY_SERVICE'
+              this.features.MY_SERVICE.isActive() &&
+              this.state.service === 'MY_SERVICE'
             }
           >
             <MyService
@@ -896,9 +897,7 @@ class App extends Component<AppProps, AppState> {
               isAnchored
             />
           </Feature>
-          <Feature
-            isActive={this.features.SHORTCUTS.isActive()}
-          >
+          <Feature isActive={this.features.SHORTCUTS.isActive()}>
             <Shortcuts
               {...this.props}
               {...this.state}
