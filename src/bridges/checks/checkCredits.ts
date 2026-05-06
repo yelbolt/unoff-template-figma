@@ -30,7 +30,10 @@ const checkCredits = async () => {
   // ── Case 1: No renew date → initialize ────────────────────────────────
   if (renewDate === null) {
     const next = addHours(now, periodHours)
-    figma.clientStorage.setAsync('credits_renew_date', next.getTime().toString())
+    figma.clientStorage.setAsync(
+      'credits_renew_date',
+      next.getTime().toString()
+    )
     renewDate = next
   }
 
@@ -41,7 +44,10 @@ const checkCredits = async () => {
       globalConfig.plan.creditsLimit.toString()
     )
     const next = addHours(now, periodHours)
-    figma.clientStorage.setAsync('credits_renew_date', next.getTime().toString())
+    figma.clientStorage.setAsync(
+      'credits_renew_date',
+      next.getTime().toString()
+    )
     creditsCount = globalConfig.plan.creditsLimit
   }
 
@@ -65,7 +71,10 @@ const checkCredits = async () => {
       globalConfig.plan.creditsLimit.toString()
     )
     const next = addHours(now, periodHours)
-    figma.clientStorage.setAsync('credits_renew_date', next.getTime().toString())
+    figma.clientStorage.setAsync(
+      'credits_renew_date',
+      next.getTime().toString()
+    )
     creditsCount = globalConfig.plan.creditsLimit
     renewDate = next
   }

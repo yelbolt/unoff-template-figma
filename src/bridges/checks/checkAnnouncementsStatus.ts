@@ -2,8 +2,11 @@
 // decides which dialog to show: onboarding, full dialog, notification, or nothing.
 const checkAnnouncementsStatus = async (remoteVersion: string) => {
   // ── Storage reads ─────────────────────────────────────────────────────
-  const localVersion = await figma.clientStorage.getAsync('announcements_version')
-  let isOnboardingRead = await figma.clientStorage.getAsync('is_onboarding_read')
+  const localVersion = await figma.clientStorage.getAsync(
+    'announcements_version'
+  )
+  let isOnboardingRead =
+    await figma.clientStorage.getAsync('is_onboarding_read')
 
   if (isOnboardingRead === undefined) {
     await figma.clientStorage.setAsync('is_onboarding_read', false)
