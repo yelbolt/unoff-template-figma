@@ -16,7 +16,6 @@
   "type": "module",
   "scripts": {
     "update:unoff": "npm i @unoff/ui@latest @unoff/utils@latest",
-    "start:ext": "npm run start:ext -w ui-ui-color-palette",
     "start:dev": "npm run build & vite preview",
     "build": "cross-env npx vite build --mode development & cross-env IS_PLUGIN=true npx vite build --mode development",
     "build:prod": "cross-env npx vite build --mode production && cross-env IS_PLUGIN=true npx vite build --mode production",
