@@ -39,6 +39,7 @@ const loadUI = async () => {
     const path = msg
 
     const actions: { [key: string]: () => void } = {
+      // ── Startup ──────────────────────────────────────────────────────
       LOAD_DATA: async () => {
         figma.ui.postMessage({
           type: 'CHECK_USER_AUTHENTICATION',
@@ -65,6 +66,12 @@ const loadUI = async () => {
           .then(() => checkUserLicense())
           .then(() => checkUserPreferences())
       },
+
+      // ── Announcements ─────────────────────────────────────────────────
+      CHECK_ANNOUNCEMENTS_STATUS: () =>
+        checkAnnouncementsStatus(path.data.version),
+
+      // ── Preferences ───────────────────────────────────────────────────
       RESIZE_UI: async () => {
         await figma.clientStorage.setAsync(
           'plugin_window_width',
@@ -77,15 +84,12 @@ const loadUI = async () => {
 
         figma.ui.resize(path.data.width, path.data.height)
       },
-      //
-      CHECK_ANNOUNCEMENTS_STATUS: () =>
-        checkAnnouncementsStatus(path.data.version),
-      //
       UPDATE_LANGUAGE: async () => {
         await figma.clientStorage.setAsync('user_language', path.data.lang)
         tolgee.changeLanguage(path.data.lang)
       },
-      //
+
+      // ── Storage ───────────────────────────────────────────────────────
       SET_ITEMS: () => {
         path.items.forEach(async (item: { key: string; value: unknown }) => {
           if (typeof item.value === 'object')
@@ -110,7 +114,8 @@ const loadUI = async () => {
         path.items.forEach(async (item: string) =>
           figma.clientStorage.setAsync(item, '')
         ),
-      //
+
+      // ── Browser ───────────────────────────────────────────────────────
       OPEN_IN_BROWSER: () => figma.openExternal(path.data.url),
       POST_MESSAGE: () => {
         figma.ui.postMessage({
@@ -121,7 +126,8 @@ const loadUI = async () => {
           },
         })
       },
-      //
+
+      // ── Plans ─────────────────────────────────────────────────────────
       ENABLE_TRIAL: async () => {
         enableTrial(path.data.trialTime, path.data.trialVersion).then(() =>
           checkTrialStatus()
@@ -159,7 +165,8 @@ const loadUI = async () => {
         figma.ui.postMessage({
           type: 'WELCOME_TO_PRO',
         }),
-      //
+
+      // ── Auth ──────────────────────────────────────────────────────────
       SIGN_OUT: () =>
         figma.ui.postMessage({
           type: 'SIGN_OUT',
@@ -170,7 +177,7 @@ const loadUI = async () => {
             id: undefined,
           },
         }),
-      //
+
       DEFAULT: () => null,
     }
 
