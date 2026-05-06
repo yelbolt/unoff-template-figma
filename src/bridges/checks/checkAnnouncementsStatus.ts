@@ -1,9 +1,9 @@
+// Compares the remote announcement version with the locally stored one and
+// decides which dialog to show: onboarding, full dialog, notification, or nothing.
 const checkAnnouncementsStatus = async (remoteVersion: string) => {
-  const localVersion = await figma.clientStorage.getAsync(
-    'announcements_version'
-  )
-  let isOnboardingRead =
-    await figma.clientStorage.getAsync('is_onboarding_read')
+  // ── Storage reads ─────────────────────────────────────────────────────
+  const localVersion = await figma.clientStorage.getAsync('announcements_version')
+  let isOnboardingRead = await figma.clientStorage.getAsync('is_onboarding_read')
 
   if (isOnboardingRead === undefined) {
     await figma.clientStorage.setAsync('is_onboarding_read', false)
@@ -15,26 +15,21 @@ const checkAnnouncementsStatus = async (remoteVersion: string) => {
     await figma.clientStorage.setAsync('is_onboarding_read', isOnboardingRead)
   }
 
+  // ── Version comparison ────────────────────────────────────────────────
   if (localVersion === '' && remoteVersion === '')
     return {
       type: 'PUSH_ANNOUNCEMENTS_STATUS',
-      data: {
-        status: 'NO_ANNOUNCEMENTS',
-      },
+      data: { status: 'NO_ANNOUNCEMENTS' },
     }
   else if (localVersion === '' && !isOnboardingRead)
     return figma.ui.postMessage({
       type: 'PUSH_ONBOARDING_STATUS',
-      data: {
-        status: 'DISPLAY_ONBOARDING_DIALOG',
-      },
+      data: { status: 'DISPLAY_ONBOARDING_DIALOG' },
     })
   else if (localVersion === '')
     return figma.ui.postMessage({
       type: 'PUSH_ANNOUNCEMENTS_STATUS',
-      data: {
-        status: 'DISPLAY_ANNOUNCEMENTS_DIALOG',
-      },
+      data: { status: 'DISPLAY_ANNOUNCEMENTS_DIALOG' },
     })
   else {
     const remoteMajorVersion = remoteVersion.split('.')[0],
@@ -46,24 +41,18 @@ const checkAnnouncementsStatus = async (remoteVersion: string) => {
     if (remoteMajorVersion !== localMajorVersion)
       return figma.ui.postMessage({
         type: 'PUSH_ANNOUNCEMENTS_STATUS',
-        data: {
-          status: 'DISPLAY_ANNOUNCEMENTS_DIALOG',
-        },
+        data: { status: 'DISPLAY_ANNOUNCEMENTS_DIALOG' },
       })
 
     if (remoteMinorVersion !== localMinorVersion)
       return figma.ui.postMessage({
         type: 'PUSH_ANNOUNCEMENTS_STATUS',
-        data: {
-          status: 'DISPLAY_ANNOUNCEMENTS_NOTIFICATION',
-        },
+        data: { status: 'DISPLAY_ANNOUNCEMENTS_NOTIFICATION' },
       })
 
     return {
       type: 'PUSH_ANNOUNCEMENTS_STATUS',
-      data: {
-        status: 'NO_ANNOUNCEMENTS',
-      },
+      data: { status: 'NO_ANNOUNCEMENTS' },
     }
   }
 }

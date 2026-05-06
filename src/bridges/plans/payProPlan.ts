@@ -1,3 +1,5 @@
+// Triggers the Figma native checkout overlay (interstitial: 'SKIP' = go straight
+// to checkout). On success, notifies the UI with WELCOME_TO_PRO.
 const payProPlan = async () => {
   await figma.payments
     ?.initiateCheckoutAsync({

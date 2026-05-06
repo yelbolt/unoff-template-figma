@@ -1,6 +1,9 @@
 import globalConfig from '../../global.config'
 import { tolgee } from '../..'
 
+// Reads stored user preferences (language, suggested-language flag), fills
+// missing values with defaults, syncs Tolgee, and sends them to the UI.
+// This is the last step in the LOAD_DATA chain — sets isLoaded: true in the UI.
 const checkUserPreferences = async () => {
   // Example preferences: user_language
   let userLanguage = await figma.clientStorage.getAsync('user_language')

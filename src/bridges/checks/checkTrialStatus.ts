@@ -1,6 +1,10 @@
 import globalConfig from '../../global.config'
 
+// Resolves trial and plan status from stored trial data.
+// Returns 'PAID' when trial is active or pro is disabled, otherwise reads
+// the Figma payment status.
 const checkTrialStatus = async () => {
+  // ── Storage reads ─────────────────────────────────────────────────────
   const trialStartDate: number | undefined =
     await figma.clientStorage.getAsync('trial_start_date')
   const currentTrialVersion: string =
@@ -9,6 +13,7 @@ const checkTrialStatus = async () => {
   const currentTrialTime: number =
     (await figma.clientStorage.getAsync('trial_time')) || 72
 
+  // ── Consumed time + trial status ──────────────────────────────────────
   let consumedTime = 0,
     trialStatus = 'UNUSED'
 
@@ -28,12 +33,14 @@ const checkTrialStatus = async () => {
     else trialStatus = 'UNUSED'
   }
 
+  // ── Plan status resolution ─────────────────────────────────────────────
   let planStatus
 
   if (trialStatus === 'PENDING' || !globalConfig.plan.isProEnabled)
     planStatus = 'PAID'
   else planStatus = figma.payments?.status.type ?? 'UNPAID'
 
+  // ── Send result to UI ──────────────────────────────────────────────────
   figma.ui.postMessage({
     type: 'CHECK_TRIAL_STATUS',
     data: {

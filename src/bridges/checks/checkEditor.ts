@@ -1,3 +1,5 @@
+// Detects the current Figma editor type (figma, figjam, dev, dev_vscode)
+// and sends it to the UI for feature availability gating.
 const checkEditorType = async () => {
   return figma.ui.postMessage({
     type: 'CHECK_EDITOR',

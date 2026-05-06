@@ -1,3 +1,4 @@
+// Stores trial start date, version, and duration, then notifies the UI.
 const enableTrial = async (trialTime: number, trialVersion: string) => {
   const now = new Date().getTime()
 
