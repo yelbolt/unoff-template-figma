@@ -11,12 +11,12 @@ For comprehensive, detailed documentation, refer to:
 This documentation is organized into four main layers:
 
 ### 📂 Canvas - Figma API Layer
-- **[Figma API](.claude/skills/unoff-create-plugin/canvas/figma-api.md)** - Node creation, styles, variables, selection, viewport
-- **[Data Storage](.claude/skills/unoff-create-plugin/canvas/data-storage.md)** - Plugin Data, Shared Plugin Data, Client Storage, migration
+- **[Figma API](.claude/skills/unoff-create-plugin/canvas/figma/canvas-api.md)** - Node creation, styles, variables, selection, viewport
+- **[Data Storage](.claude/skills/unoff-create-plugin/canvas/figma/data-storage.md)** - Plugin Data, Shared Plugin Data, Client Storage, migration
 
 ### 🌉 Bridge - Communication Layer
-- **[Communication Pattern](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md)** - Architecture, message flow, type conventions, request-response
-- **[Bridge Functions](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md)** - Pure functions, loadUI.ts action map, check functions
+- **[Communication Pattern](.claude/skills/unoff-create-plugin/bridge/figma/communication-pattern.md)** - Architecture, message flow, type conventions, request-response
+- **[Bridge Functions](.claude/skills/unoff-create-plugin/bridge/figma/bridge-functions.md)** - Pure functions, loadUI.ts action map, check functions
 
 ### ⚙️ Config - Build & Quality Layer
 - **[Global Config](.claude/skills/unoff-create-plugin/config/global-config.md)** - Config type, sections, env vars, service toggles

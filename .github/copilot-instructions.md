@@ -9,12 +9,12 @@
 ### Documentation by Layer
 
 **📂 Canvas** - Figma API operations
-- [Figma API](.claude/skills/unoff-create-plugin/canvas/figma-api.md)
-- [Data Storage](.claude/skills/unoff-create-plugin/canvas/data-storage.md)
+- [Figma API](.claude/skills/unoff-create-plugin/canvas/figma/canvas-api.md)
+- [Data Storage](.claude/skills/unoff-create-plugin/canvas/figma/data-storage.md)
 
 **🌉 Bridge** - Communication layer
-- [Communication Pattern](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md)
-- [Bridge Functions](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md)
+- [Communication Pattern](.claude/skills/unoff-create-plugin/bridge/figma/communication-pattern.md)
+- [Bridge Functions](.claude/skills/unoff-create-plugin/bridge/figma/bridge-functions.md)
 
 **⚙️ Config** - Build & quality
 - [Global Config](.claude/skills/unoff-create-plugin/config/global-config.md)
@@ -60,7 +60,7 @@ This is a Figma plugin built with TypeScript, Preact (aliased via preact/compat)
 
 **Subdirectories**: `/checks/` (validations), `/plans/` (subscriptions)
 
-**See**: [Figma API Guide](.claude/skills/unoff-create-plugin/canvas/figma-api.md) • [Bridge Functions](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md)
+**See**: [Figma API Guide](.claude/skills/unoff-create-plugin/canvas/figma/canvas-api.md) • [Bridge Functions](.claude/skills/unoff-create-plugin/bridge/figma/bridge-functions.md)
 
 ### `/src/app/` - React UI Application
 
@@ -146,7 +146,7 @@ useEffect(() => {
 - UI → Canvas: `VERB_NOUN` (e.g., `CREATE_NODE`)
 - Canvas → UI: `NOUN_PAST_TENSE` (e.g., `NODE_CREATED`)
 
-**For complete communication patterns** → [Communication Pattern](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md)
+**For complete communication patterns** → [Communication Pattern](.claude/skills/unoff-create-plugin/bridge/figma/communication-pattern.md)
 
 ## External Services
 

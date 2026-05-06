@@ -12,8 +12,8 @@ For detailed documentation and implementation guides, see:
 
 The documentation is organized into five layers:
 
-- **Canvas** — Figma API operations ([figma-api.md](.claude/skills/unoff-create-plugin/canvas/figma-api.md), [data-storage.md](.claude/skills/unoff-create-plugin/canvas/data-storage.md))
-- **Bridge** — UI ↔ Canvas communication ([communication-pattern.md](.claude/skills/unoff-create-plugin/bridge/communication-pattern.md), [bridge-functions.md](.claude/skills/unoff-create-plugin/bridge/bridge-functions.md))
+- **Canvas** — Figma API operations ([canvas-api.md](.claude/skills/unoff-create-plugin/canvas/figma/canvas-api.md), [data-storage.md](.claude/skills/unoff-create-plugin/canvas/figma/data-storage.md))
+- **Bridge** — UI ↔ Canvas communication ([communication-pattern.md](.claude/skills/unoff-create-plugin/bridge/figma/communication-pattern.md), [bridge-functions.md](.claude/skills/unoff-create-plugin/bridge/figma/bridge-functions.md))
 - **Config** — Feature flags, credits, build system ([global-config.md](.claude/skills/unoff-create-plugin/config/global-config.md), [feature-flags.md](.claude/skills/unoff-create-plugin/config/feature-flags.md), [vite-build.md](.claude/skills/unoff-create-plugin/config/vite-build.md))
 - **UI** — Preact application ([component-library.md](.claude/skills/unoff-create-plugin/ui/component-library.md), [component-patterns.md](.claude/skills/unoff-create-plugin/ui/component-patterns.md), [external-services.md](.claude/skills/unoff-create-plugin/ui/external-services.md), [state-management.md](.claude/skills/unoff-create-plugin/ui/state-management.md), [i18n.md](.claude/skills/unoff-create-plugin/ui/i18n.md))
 - **Externals** — Integration workflows ([payment-systems.md](.claude/skills/unoff-create-plugin/externals/payment-systems.md))
@@ -45,11 +45,13 @@ All these files reference the full documentation in `.claude/skills/unoff-create
 │       └── unoff-create-plugin/  # Detailed documentation by layer
 │           ├── README.md           # Documentation index
 │           ├── canvas/             # Canvas layer
-│           │   ├── figma-api.md
-│           │   └── data-storage.md
+│           │   └── figma/
+│           │       ├── canvas-api.md
+│           │       └── data-storage.md
 │           ├── bridge/             # Bridge layer
-│           │   ├── communication-pattern.md
-│           │   └── bridge-functions.md
+│           │   └── figma/
+│           │       ├── communication-pattern.md
+│           │       └── bridge-functions.md
 │           ├── config/             # Config & build layer
 │           │   ├── global-config.md
 │           │   ├── feature-flags.md
