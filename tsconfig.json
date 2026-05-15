@@ -25,7 +25,8 @@
       "./node_modules/@types",
       "./node_modules/@figma"
     ],
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "skipLibCheck": true,
     "paths": {
       "react": ["./node_modules/preact/compat/"],

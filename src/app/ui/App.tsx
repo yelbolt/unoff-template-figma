@@ -1,4 +1,3 @@
-import React from 'react'
 import { Component, createPortal } from 'preact/compat'
 import { FeatureStatus } from '@unoff/utils'
 import {

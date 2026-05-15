@@ -1,5 +1,7 @@
-import React, { createContext, ReactNode, useContext } from 'react'
+import { useContext } from 'preact/hooks'
+import { createContext } from 'preact'
 import { Config } from '../types/config'
+import type { ComponentChildren } from 'preact'
 
 export type ConfigContextType = Config
 
@@ -8,7 +10,7 @@ export const ConfigContext = createContext<ConfigContextType | undefined>(
 )
 
 interface ConfigProviderProps extends ConfigContextType {
-  children: ReactNode
+  children: ComponentChildren
 }
 
 export const ConfigProvider = ({

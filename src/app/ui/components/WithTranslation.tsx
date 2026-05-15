@@ -1,5 +1,5 @@
-import React, { ComponentType } from 'react'
 import { useTranslate } from '@tolgee/react'
+import type { ComponentType } from 'preact'
 
 export interface WithTranslationProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

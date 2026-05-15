@@ -1,4 +1,6 @@
-import React, { createContext, ReactNode, useContext } from 'react'
+import { useContext, useEffect } from 'preact/hooks'
+import { createContext } from 'preact'
+import type { ComponentChildren } from 'preact'
 
 export type Theme = 'figma' | 'penpot' | 'sketch' | 'framer'
 export type Mode =
@@ -22,7 +24,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 interface ThemeProviderProps {
   theme: Theme
   mode: Mode
-  children: ReactNode
+  children: ComponentChildren
 }
 
 export const ThemeProvider = ({
@@ -30,7 +32,7 @@ export const ThemeProvider = ({
   mode,
   children,
 }: ThemeProviderProps) => {
-  React.useEffect(() => {
+  useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
     document.documentElement.setAttribute('data-mode', mode)
   }, [theme, mode])

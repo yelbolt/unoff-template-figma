@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client'
-import React from 'react'
 import mixpanel from 'mixpanel-figma'
 import { TolgeeProvider } from '@tolgee/react'
 import * as Sentry from '@sentry/react'

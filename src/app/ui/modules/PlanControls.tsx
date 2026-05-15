@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import { PureComponent } from 'preact/compat'
 import { doClassnames, FeatureStatus } from '@unoff/utils'
 import { Button, Chip, IconChip, layouts, texts } from '@unoff/ui'
 import { WithTranslationProps } from '../components/WithTranslation'
@@ -9,6 +9,7 @@ import { BaseProps, Editor, PlanStatus, Service } from '../../types/app'
 import { $creditsCount } from '../../stores/credits'
 import { getTolgee } from '../../external/translation'
 import { ConfigContextType } from '../../config/ConfigContext'
+import type { ComponentChildren } from 'preact'
 
 interface PlanControlsState {
   creditsCount: number
@@ -69,7 +70,7 @@ export default class PlanControls extends PureComponent<
   }
 
   // Templates
-  Fees = (): React.ReactNode => {
+  Fees = (): ComponentChildren => {
     return (
       <ul className="list-item">
         {PlanControls.features(
