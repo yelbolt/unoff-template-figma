@@ -11,44 +11,37 @@ export const setContexts = (
   locales: (key: string, params?: Record<string, any> | undefined) => string
 ) => {
   const featuresList = {
-    MY_FIRST_CONTEXT: new FeatureStatus({
+    WELCOME: new FeatureStatus({
       features: features,
-      featureName: 'MY_FIRST_CONTEXT',
+      featureName: 'WELCOME',
       planStatus: planStatus,
       currentService: service,
       currentEditor: editor,
     }),
-    MY_SECOND_CONTEXT: new FeatureStatus({
+    EXAMPLES: new FeatureStatus({
       features: features,
-      featureName: 'MY_SECOND_CONTEXT',
+      featureName: 'EXAMPLES',
       planStatus: planStatus,
       currentService: service,
       currentEditor: editor,
     }),
-    MY_THIRD_CONTEXT: new FeatureStatus({
+    EXAMPLES_TODO_LIST: new FeatureStatus({
       features: features,
-      featureName: 'MY_THIRD_CONTEXT',
+      featureName: 'EXAMPLES_TODO_LIST',
       planStatus: planStatus,
       currentService: service,
       currentEditor: editor,
     }),
-    MY_FIRST_CONTEXT_SUBCONTEXT_A: new FeatureStatus({
+    EXAMPLES_COLOR_PALETTE: new FeatureStatus({
       features: features,
-      featureName: 'MY_FIRST_CONTEXT_SUBCONTEXT_A',
+      featureName: 'EXAMPLES_COLOR_PALETTE',
       planStatus: planStatus,
       currentService: service,
       currentEditor: editor,
     }),
-    MY_FIRST_CONTEXT_SUBCONTEXT_B: new FeatureStatus({
+    EXAMPLES_LAYER_INSPECTOR: new FeatureStatus({
       features: features,
-      featureName: 'MY_FIRST_CONTEXT_SUBCONTEXT_B',
-      planStatus: planStatus,
-      currentService: service,
-      currentEditor: editor,
-    }),
-    MY_FIRST_CONTEXT_SUBCONTEXT_C: new FeatureStatus({
-      features: features,
-      featureName: 'MY_FIRST_CONTEXT_SUBCONTEXT_C',
+      featureName: 'EXAMPLES_LAYER_INSPECTOR',
       planStatus: planStatus,
       currentService: service,
       currentEditor: editor,
@@ -63,46 +56,39 @@ export const setContexts = (
     isActive: boolean
   }> = [
     {
-      label: locales('myService.contexts.firstContext'),
-      id: 'MY_FIRST_CONTEXT',
+      label: locales('template.contexts.firstContext'),
+      id: 'WELCOME',
       isUpdated: false,
-      isNew: featuresList.MY_FIRST_CONTEXT.isNew(),
-      isActive: featuresList.MY_FIRST_CONTEXT.isActive(),
+      isNew: featuresList.WELCOME.isNew(),
+      isActive: featuresList.WELCOME.isActive(),
     },
     {
-      label: locales('myService.contexts.secondContext'),
-      id: 'MY_SECOND_CONTEXT',
+      label: locales('template.contexts.secondContext'),
+      id: 'EXAMPLES',
       isUpdated: false,
-      isNew: featuresList.MY_SECOND_CONTEXT.isNew(),
-      isActive: featuresList.MY_SECOND_CONTEXT.isActive(),
+      isNew: featuresList.EXAMPLES.isNew(),
+      isActive: featuresList.EXAMPLES.isActive(),
     },
     {
-      label: locales('myService.contexts.thirdContext'),
-      id: 'MY_THIRD_CONTEXT',
+      label: locales('template.subcontexts.toDoList'),
+      id: 'EXAMPLES_TODO_LIST',
       isUpdated: false,
-      isNew: featuresList.MY_THIRD_CONTEXT.isNew(),
-      isActive: featuresList.MY_THIRD_CONTEXT.isActive(),
+      isNew: featuresList.EXAMPLES_TODO_LIST.isNew(),
+      isActive: featuresList.EXAMPLES_TODO_LIST.isActive(),
     },
     {
-      label: locales('myService.subcontexts.firstContextSubcontextA'),
-      id: 'MY_FIRST_CONTEXT_SUBCONTEXT_A',
+      label: locales('template.subcontexts.colorPalette'),
+      id: 'EXAMPLES_COLOR_PALETTE',
       isUpdated: false,
-      isNew: featuresList.MY_FIRST_CONTEXT_SUBCONTEXT_A.isNew(),
-      isActive: featuresList.MY_FIRST_CONTEXT_SUBCONTEXT_A.isActive(),
+      isNew: featuresList.EXAMPLES_COLOR_PALETTE.isNew(),
+      isActive: featuresList.EXAMPLES_COLOR_PALETTE.isActive(),
     },
     {
-      label: locales('myService.subcontexts.firstContextSubcontextB'),
-      id: 'MY_FIRST_CONTEXT_SUBCONTEXT_B',
+      label: locales('template.subcontexts.layerInspector'),
+      id: 'EXAMPLES_LAYER_INSPECTOR',
       isUpdated: false,
-      isNew: featuresList.MY_FIRST_CONTEXT_SUBCONTEXT_B.isNew(),
-      isActive: featuresList.MY_FIRST_CONTEXT_SUBCONTEXT_B.isActive(),
-    },
-    {
-      label: locales('myService.subcontexts.firstContextSubcontextC'),
-      id: 'MY_FIRST_CONTEXT_SUBCONTEXT_C',
-      isUpdated: false,
-      isNew: featuresList.MY_FIRST_CONTEXT_SUBCONTEXT_C.isNew(),
-      isActive: featuresList.MY_FIRST_CONTEXT_SUBCONTEXT_C.isActive(),
+      isNew: featuresList.EXAMPLES_LAYER_INSPECTOR.isNew(),
+      isActive: featuresList.EXAMPLES_LAYER_INSPECTOR.isActive(),
     },
     // Add more contexts as needed
   ]

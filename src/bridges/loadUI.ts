@@ -1,4 +1,6 @@
 import globalConfig from '../global.config'
+import TodoChecklist from '../canvas/TodoChecklist'
+import ColorPalette from '../canvas/ColorPalette'
 import { tolgee } from '..'
 import payProPlan from './plans/payProPlan'
 import enableTrial from './plans/enableTrial'
@@ -115,6 +117,21 @@ const loadUI = async () => {
           figma.clientStorage.setAsync(item, '')
         ),
 
+      // ── Canvas ────────────────────────────────────────────────────────
+      GENERATE_TODO_ON_CANVAS: async () => {
+        await figma.loadFontAsync({ family: 'Lexend', style: 'Medium' })
+        const checklist = new TodoChecklist({ items: path.data.items })
+        figma.currentPage.appendChild(checklist.node)
+        figma.viewport.scrollAndZoomIntoView([checklist.node])
+      },
+      GENERATE_COLOR_PALETTE: async () => {
+        await figma.loadFontAsync({ family: 'Martian Mono', style: 'Medium' })
+        const palette = new ColorPalette({ baseColor: path.data.baseColor })
+        figma.currentPage.appendChild(palette.node)
+        figma.viewport.scrollAndZoomIntoView([palette.node])
+      },
+      GET_SELECTION: () => sendSelectionInfo(),
+
       // ── Browser ───────────────────────────────────────────────────────
       OPEN_IN_BROWSER: () => figma.openExternal(path.data.url),
       POST_MESSAGE: () => {
@@ -187,6 +204,52 @@ const loadUI = async () => {
       return actions['DEFAULT']?.()
     }
   }
+
+  // ── Listeners ─────────────────────────────────────────────────────────────
+  figma.on('selectionchange', () => sendSelectionInfo())
+}
+
+// ── Selection helper ─────────────────────────────────────────────────────────
+
+const sendSelectionInfo = () => {
+  const selection = figma.currentPage.selection
+  if (selection.length === 0) {
+    figma.ui.postMessage({ type: 'SET_SELECTION_INFO', data: null })
+    return
+  }
+  const node = selection[0]
+  const fills = (node as SceneNode & { fills?: readonly Paint[] }).fills
+  let fill: string | undefined
+  if (fills && fills.length > 0 && fills[0].type === 'SOLID') {
+    const { r, g, b } = fills[0].color
+    fill = [r, g, b]
+      .map((c) =>
+        Math.round(c * 255)
+          .toString(16)
+          .padStart(2, '0')
+      )
+      .join('')
+    fill = `#${fill}`
+  }
+  figma.ui.postMessage({
+    type: 'SET_SELECTION_INFO',
+    data: {
+      name: node.name,
+      type: node.type,
+      width: Math.round(
+        (node as SceneNode & { width: number }).width ?? 0
+      ),
+      height: Math.round(
+        (node as SceneNode & { height: number }).height ?? 0
+      ),
+      x: Math.round((node as SceneNode & { x: number }).x ?? 0),
+      y: Math.round((node as SceneNode & { y: number }).y ?? 0),
+      fill,
+      opacity: Math.round(
+        ((node as SceneNode & { opacity?: number }).opacity ?? 1) * 100
+      ),
+    },
+  })
 }
 
 export default loadUI

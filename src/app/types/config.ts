@@ -9,6 +9,7 @@ export interface Config {
     height: number
     minWidth: number
     minHeight: number
+    maxItem: number
   }
   env: {
     isDev: boolean

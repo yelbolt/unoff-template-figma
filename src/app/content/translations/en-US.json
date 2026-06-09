@@ -1,11 +1,6 @@
 {
   "about": {
     "attributions": {
-      "unoff": {
-        "author": "Aurélien Grimaud",
-        "unoff": "Unoff",
-        "sentence": "• The component integration is powered by {unoff} by {author}"
-      },
       "preact": {
         "preact": "Preact",
         "sentence": "• The UI is built using {preact}"
@@ -15,6 +10,11 @@
         "supabase": "Supabase"
       },
       "title": "Attributions",
+      "unoff": {
+        "author": "Aurélien Grimaud",
+        "sentence": "• The component integration is powered by {unoff} by {author}",
+        "unoff": "Unoff"
+      },
       "vite": {
         "sentence": "• The build tool is powered by {vite}",
         "vite": "Vite"
@@ -65,25 +65,74 @@
     "onboarding": "There is no onboarding for now",
     "signOut": "See you later"
   },
-  "myService": {
-    "contexts": {
-      "firstContext": "Context 1",
-      "secondContext": "Context 2",
-      "thirdContext": "Context 3"
-    },
-    "mySubcontextA": {
+  "template": {
+    "colorPalette": {
       "cta": {
-        "add": "Add"
+        "generate": "Generate palette"
+      },
+      "empty": "Enter a hex color to generate a 9-shade palette on the canvas.",
+      "input": {
+        "placeholder": "#FF5733"
+      }
+    },
+    "contexts": {
+      "firstContext": "Welcome",
+      "secondContext": "Examples"
+    },
+    "layerInspector": {
+      "cta": {
+        "inspect": "Inspect selection"
+      },
+      "empty": "Select a layer in Figma, then click 'Inspect' to see its properties.",
+      "noSelection": "No layer selected. Select one in Figma to inspect it.",
+      "properties": {
+        "fill": "Fill",
+        "height": "Height",
+        "name": "Name",
+        "opacity": "Opacity",
+        "type": "Type",
+        "width": "Width",
+        "x": "X",
+        "y": "Y"
+      }
+    },
+    "skills": {
+      "architecture": {
+        "bridge": "Bridge handler",
+        "canvas": "Canvas logic",
+        "description": "A skill adds 3 touch points to your plugin",
+        "subcontext": "UI component"
+      },
+      "cta": {
+        "access": "Get skills access"
+      }
+    },
+    "subcontexts": {
+      "toDoList": "To-do list",
+      "colorPalette": "Color palette",
+      "layerInspector": "Layer inspector"
+    },
+    "ToDoList": {
+      "cta": {
+        "add": "Add",
+        "generateOnCanvas": "Generate checklist"
       },
       "empty": "No items yet. Add one above.",
       "input": {
         "placeholder": "New item…"
       }
     },
-    "subcontexts": {
-      "firstContextSubcontextA": "Subcontext A",
-      "firstContextSubcontextB": "Subcontext B",
-      "firstContextSubcontextC": "Subcontext C"
+    "welcome": {
+      "description": "Stop wiring services together for weeks. Unoff gives you everything you need to build, ship, and monetize plugins — even if you've never written a line of code. Skills are ready-to-use in your current folder. Add them via the command:",
+      "signature": "Proudly shipped with Unoff by {author}",
+      "skills": {
+        "cta": {
+          "access": "Get skills access",
+          "docs": "Read the docs"
+        },
+        "description": "Subscribe to unlock a growing library of skills that you can use in your plugin. They are plug-and-play, so you can easily add them to your current folder and start using them right away."
+      },
+      "title": "Welcome to {pluginName} — a production-ready template for building Figma plugins."
     }
   },
   "onboarding": {
@@ -130,6 +179,9 @@
       "text": "Enter your license key after purchasing to unlock Pro features",
       "title": "Activate Pro"
     },
+    "discount": {
+      "amount": "20% off"
+    },
     "planA": {
       "cta": "Go Pro",
       "subtitle": "$5 /month",
@@ -141,9 +193,6 @@
       "subtitle": "$15 /month",
       "text": "Using Lemon Squeezy transactional services to process payments and manage subscriptions",
       "title": "Plan B"
-    },
-    "discount": {
-      "amount": "20% off"
     },
     "title": "Subscribe to {pluginName} Pro"
   },

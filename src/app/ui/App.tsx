@@ -43,7 +43,7 @@ import checkAnnouncementsVersion from '../external/cms/checkAnnouncementsVersion
 import checkConnectionStatus from '../external/auth/checkConnectionStatus'
 import { getSupabase } from '../external/auth'
 import { ConfigContextType } from '../config/ConfigContext'
-import MyService from './services/MyService'
+import Template from './services/Template'
 import Shortcuts from './modules/Shortcuts'
 import Modal from './contexts/Modal'
 import {
@@ -694,12 +694,8 @@ class App extends Component<AppProps, AppState> {
     const languageMapping: { [key: string]: Language } = {
       'en-US': 'en-US',
       en: 'en-US',
-      'pt-BR': 'pt-BR',
-      pt: 'pt-BR',
       'fr-FR': 'fr-FR',
       fr: 'fr-FR',
-      'zh-Hans-CN': 'zh-Hans-CN',
-      zh: 'zh-Hans-CN',
     }
 
     const suggestedLang =
@@ -753,7 +749,7 @@ class App extends Component<AppProps, AppState> {
               this.state.service === 'MY_SERVICE'
             }
           >
-            <MyService
+            <Template
               {...this.props}
               {...this.state}
             />

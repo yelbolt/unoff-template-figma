@@ -13,6 +13,7 @@ const globalConfig: Config = {
     height: 640,
     minWidth: 240,
     minHeight: 420,
+    maxItem: 5,
   },
   env: {
     platform: 'figma',
@@ -56,19 +57,20 @@ const globalConfig: Config = {
     storeApiUrl: import.meta.env.VITE_LEMONSQUEEZY_URL as string,
     platformUrl: 'https://www.figma.com',
     uiUrl: isDev ? 'http://localhost:4400' : 'https://ui.{{ pluginSlug }}.com',
-    documentationUrl: 'https://docs.{{ pluginSlug }}.com',
-    repositoryUrl: 'https://git.{{ pluginSlug }}.com/{{ pluginSlug }}-repo',
-    communityUrl: 'https://community.{{ pluginSlug }}.com',
-    supportEmail: 'https://support.{{ pluginSlug }}.com',
-    feedbackUrl: 'https://feedback.{{ pluginSlug }}.com',
-    trialFeedbackUrl: 'https://feedback.{{ pluginSlug }}.com/trial',
-    requestsUrl: 'https://ideas.{{ pluginSlug }}.com',
-    networkUrl: 'https://social.{{ pluginSlug }}.com',
-    authorUrl: 'https://{{ pluginSlug }}.com/author',
-    licenseUrl: 'https://{{ pluginSlug }}.com/license',
-    privacyUrl: 'https://{{ pluginSlug }}.com/privacy',
-    storeUrl: 'https://{{ pluginSlug }}.com/store',
-    storeManagementUrl: 'https://{{ pluginSlug }}.com/store-management',
+    documentationUrl: 'https://uno.ylb.lt/docs',
+    repositoryUrl: 'https://github.com/yelbolt/unoff-template-figma',
+    communityUrl: 'https://uno.ylb.lt/community',
+    supportEmail: 'https://github.com/yelbolt/unoff-template-figma/issues',
+    feedbackUrl: 'https://github.com/yelbolt/unoff-template-figma/issues',
+    trialFeedbackUrl: 'https://github.com/yelbolt/unoff-template-figma/issues',
+    requestsUrl: 'https://github.com/yelbolt/unoff-template-figma/issues',
+    networkUrl: 'https://uno.ylb.lt/network',
+    authorUrl: 'https://uno.ylb.lt/author',
+    licenseUrl:
+      'https://github.com/yelbolt/unoff-template-figma/blob/main/LICENSE',
+    privacyUrl: 'https://uno.ylb.lt/privacy',
+    storeUrl: 'https://uno.ylb.lt/start',
+    storeManagementUrl: 'https://uno.ylb.lt/start',
   },
   versions: {
     userConsentVersion: '2025.09',
@@ -86,7 +88,7 @@ const globalConfig: Config = {
     ],
     [
       // New features
-      'MY_FIRST_CONTEXT_SUBCONTEXT_C',
+      'EXAMPLES_LAYER_INSPECTOR',
     ]
   ),
   lang: 'en-US',
@@ -96,7 +98,7 @@ const globalConfig: Config = {
 }
 
 const limitsMapping: { [key: string]: keyof typeof globalConfig.limits } = {
-  //
+  ADD_ITEM: 'maxItem',
 }
 
 globalConfig.features.forEach((feature: Feature<'MY_SERVICE'>) => {

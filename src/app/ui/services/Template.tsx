@@ -1,9 +1,8 @@
 import { PureComponent } from 'preact/compat'
 import { FeatureStatus } from '@unoff/utils'
 import { Bar, Tabs } from '@unoff/ui'
-import MyThirdContext from '../contexts/MyThirdContext'
-import MySecondContext from '../contexts/MySecondContext'
-import MyFirstContext from '../contexts/MyFirstContext'
+import Welcome from '../contexts/Welcome'
+import Examples from '../contexts/Examples'
 import { WithTranslationProps } from '../components/WithTranslation'
 import { WithConfigProps } from '../components/WithConfig'
 import { setContexts } from '../../utils/setContexts'
@@ -18,20 +17,20 @@ import {
 } from '../../types/app'
 import { ConfigContextType } from '../../config/ConfigContext'
 
-interface MyServiceProps
+interface TemplateProps
   extends BaseProps, WithConfigProps, WithTranslationProps {
   //
 }
 
-interface MyServiceState {
+interface TemplateState {
   context: Context | ''
   isPrimaryLoading: boolean
   isSecondaryLoading: boolean
 }
 
-export default class MyService extends PureComponent<
-  MyServiceProps,
-  MyServiceState
+export default class Template extends PureComponent<
+  TemplateProps,
+  TemplateState
 > {
   private contexts: Array<ContextItem>
   private theme: string | null
@@ -52,7 +51,7 @@ export default class MyService extends PureComponent<
   })
 
   private get features() {
-    return MyService.features(
+    return Template.features(
       this.props.planStatus,
       this.props.config,
       this.props.service,
@@ -60,10 +59,10 @@ export default class MyService extends PureComponent<
     )
   }
 
-  constructor(props: MyServiceProps) {
+  constructor(props: TemplateProps) {
     super(props)
     this.contexts = setContexts(
-      ['MY_FIRST_CONTEXT', 'MY_SECOND_CONTEXT', 'MY_THIRD_CONTEXT'],
+      ['WELCOME', 'EXAMPLES'],
       props.planStatus,
       props.config.features,
       props.editor,
@@ -86,10 +85,10 @@ export default class MyService extends PureComponent<
     )
   }
 
-  componentDidUpdate(previousProps: Readonly<MyServiceProps>): void {
+  componentDidUpdate(previousProps: Readonly<TemplateProps>): void {
     if (previousProps.t !== this.props.t) {
       this.contexts = setContexts(
-        ['MY_FIRST_CONTEXT', 'MY_SECOND_CONTEXT', 'MY_THIRD_CONTEXT'],
+        ['WELCOME', 'EXAMPLES'],
         this.props.planStatus,
         this.props.config.features,
         this.props.editor,
@@ -155,16 +154,12 @@ export default class MyService extends PureComponent<
     }
 
     switch (this.state.context) {
-      case 'MY_FIRST_CONTEXT': {
-        fragment = <MyFirstContext {...this.props} />
+      case 'WELCOME': {
+        fragment = <Welcome {...this.props} />
         break
       }
-      case 'MY_SECOND_CONTEXT': {
-        fragment = <MySecondContext {...this.props} />
-        break
-      }
-      case 'MY_THIRD_CONTEXT': {
-        fragment = <MyThirdContext {...this.props} />
+      case 'EXAMPLES': {
+        fragment = <Examples {...this.props} />
         break
       }
     }

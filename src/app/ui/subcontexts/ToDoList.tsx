@@ -14,6 +14,7 @@ import {
 import { WithTranslationProps } from '../components/WithTranslation'
 import { WithConfigProps } from '../components/WithConfig'
 import Feature from '../components/Feature'
+import { sendPluginMessage } from '../../utils/pluginMessage'
 import { BaseProps, Editor, PlanStatus, Service } from '../../types/app'
 import {
   $canRedo,
@@ -25,21 +26,21 @@ import {
 } from '../../stores/history'
 import { ConfigContextType } from '../../config/ConfigContext'
 
-interface MySubcontextAProps
+interface ToDoListProps
   extends BaseProps, WithConfigProps, WithTranslationProps {
   //
 }
 
-interface MySubcontextAState {
+interface ToDoListState {
   items: string[]
   canUndo: boolean
   canRedo: boolean
   inputValue: string
 }
 
-export default class MySubcontextA extends PureComponent<
-  MySubcontextAProps,
-  MySubcontextAState
+export default class ToDoList extends PureComponent<
+  ToDoListProps,
+  ToDoListState
 > {
   private subscribeItemsHistory: (() => void) | null = null
   private subscribeCanUndo: (() => void) | null = null
@@ -58,10 +59,17 @@ export default class MySubcontextA extends PureComponent<
       currentService: service,
       currentEditor: editor,
     }),
+    GENERATE_TODO_ON_CANVAS: new FeatureStatus({
+      features: config.features,
+      featureName: 'GENERATE_TODO_ON_CANVAS',
+      planStatus: planStatus,
+      currentService: service,
+      currentEditor: editor,
+    }),
   })
 
   private get features() {
-    return MySubcontextA.features(
+    return ToDoList.features(
       this.props.planStatus,
       this.props.config,
       this.props.service,
@@ -69,7 +77,7 @@ export default class MySubcontextA extends PureComponent<
     )
   }
 
-  constructor(props: MySubcontextAProps) {
+  constructor(props: ToDoListProps) {
     super(props)
     this.state = {
       items: [],
@@ -110,13 +118,24 @@ export default class MySubcontextA extends PureComponent<
     pushItems(this.state.items.filter((_, i) => i !== index))
   }
 
+  handleGenerateOnCanvas = () =>
+    sendPluginMessage(
+      {
+        pluginMessage: {
+          type: 'GENERATE_TODO_ON_CANVAS',
+          data: { items: this.state.items },
+        },
+      },
+      '*'
+    )
+
   // Render
   render() {
     const { items, canUndo, canRedo, inputValue } = this.state
 
     return (
       <Layout
-        id="my-subcontext-a"
+        id="todo-list"
         column={[
           {
             node: (
@@ -147,10 +166,9 @@ export default class MySubcontextA extends PureComponent<
                           type="TEXT"
                           value={inputValue}
                           placeholder={this.props.t(
-                            'myService.mySubcontextA.input.placeholder'
+                            'template.ToDoList.input.placeholder'
                           )}
                           isFlex
-                          isBlocked={this.features.ADD_ITEM.isBlocked()}
                           onChange={(e) =>
                             this.setState({
                               inputValue: (e.target as HTMLInputElement).value,
@@ -164,9 +182,11 @@ export default class MySubcontextA extends PureComponent<
                       <Button
                         type="primary"
                         icon="plus"
-                        label={this.props.t('myService.mySubcontextA.cta.add')}
+                        label={this.props.t('template.ToDoList.cta.add')}
                         isDisabled={inputValue.trim() === ''}
-                        isBlocked={this.features.ADD_ITEM.isBlocked()}
+                        isBlocked={this.features.ADD_ITEM.isReached(
+                          this.state.items.length
+                        )}
                         isNew={this.features.ADD_ITEM.isNew()}
                         action={this.handleAddItem}
                       />
@@ -176,7 +196,7 @@ export default class MySubcontextA extends PureComponent<
                   {items.length === 0 ? (
                     <SemanticMessage
                       type="NEUTRAL"
-                      message={this.props.t('myService.mySubcontextA.empty')}
+                      message={this.props.t('template.ToDoList.empty')}
                     />
                   ) : (
                     <List>
@@ -193,10 +213,27 @@ export default class MySubcontextA extends PureComponent<
                               action={this.handleDeleteItem(index)}
                             />
                           }
+                          alignment="CENTER"
                           isListItem
                         />
                       ))}
                     </List>
+                  )}
+                  {items.length > 0 && (
+                    <Bar
+                      rightPartSlot={
+                        <Button
+                          type="primary"
+                          icon="draft"
+                          label={this.props.t(
+                            'template.ToDoList.cta.generateOnCanvas'
+                          )}
+                          isNew={this.features.GENERATE_TODO_ON_CANVAS.isNew()}
+                          action={this.handleGenerateOnCanvas}
+                        />
+                      }
+                      border={['TOP']}
+                    />
                   )}
                 </div>
               </Feature>

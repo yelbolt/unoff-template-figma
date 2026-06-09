@@ -1,11 +1,6 @@
 {
   "about": {
     "attributions": {
-      "unoff": {
-        "author": "Aurélien Grimaud",
-        "unoff": "Unoff",
-        "sentence": "• L'intégration des composants est alimentée par {unoff} par {author}"
-      },
       "preact": {
         "preact": "Preact",
         "sentence": "• L'interface utilisateur est construite avec {preact}"
@@ -15,6 +10,11 @@
         "supabase": "Supabase"
       },
       "title": "Attributions",
+      "unoff": {
+        "author": "Aurélien Grimaud",
+        "sentence": "• L'intégration des composants est alimentée par {unoff} par {author}",
+        "unoff": "Unoff"
+      },
       "vite": {
         "sentence": "• L'outil de build est alimenté par {vite}",
         "vite": "Vite"
@@ -65,25 +65,74 @@
     "onboarding": "Il n'y a pas d'intégration pour l'instant",
     "signOut": "À bientôt"
   },
-  "myService": {
-    "contexts": {
-      "firstContext": "Contexte 1",
-      "secondContext": "Contexte 2",
-      "thirdContext": "Contexte 3"
-    },
-    "mySubcontextA": {
+  "template": {
+    "colorPalette": {
       "cta": {
-        "add": "Ajouter"
+        "generate": "Générer la palette"
+      },
+      "empty": "Saisissez une couleur hex pour générer une palette de 9 teintes sur le canevas.",
+      "input": {
+        "placeholder": "#FF5733"
+      }
+    },
+    "contexts": {
+      "firstContext": "Bienvenue",
+      "secondContext": "Exemples"
+    },
+    "layerInspector": {
+      "cta": {
+        "inspect": "Inspecter la sélection"
+      },
+      "empty": "Sélectionnez un calque dans Figma, puis cliquez sur 'Inspecter' pour voir ses propriétés.",
+      "noSelection": "Aucun calque sélectionné. Sélectionnez-en un dans Figma pour l'inspecter.",
+      "properties": {
+        "fill": "Couleur",
+        "height": "Hauteur",
+        "name": "Nom",
+        "opacity": "Opacité",
+        "type": "Type",
+        "width": "Largeur",
+        "x": "X",
+        "y": "Y"
+      }
+    },
+    "skills": {
+      "architecture": {
+        "bridge": "Gestionnaire de bridge",
+        "canvas": "Logique canvas",
+        "description": "Un skill ajoute 3 points d'entrée à votre plugin",
+        "subcontext": "Composant UI"
+      },
+      "cta": {
+        "access": "Accéder aux skills"
+      }
+    },
+    "subcontexts": {
+      "toDoList": "Liste de tâches",
+      "colorPalette": "Palette de couleurs",
+      "layerInspector": "Inspecteur de calques"
+    },
+    "ToDoList": {
+      "cta": {
+        "add": "Ajouter",
+        "generateOnCanvas": "Générer la checklist"
       },
       "empty": "Aucun élément pour l'instant. Ajoutez-en un ci-dessus.",
       "input": {
         "placeholder": "Nouvel élément…"
       }
     },
-    "subcontexts": {
-      "firstContextSubcontextA": "Sous-contexte A",
-      "firstContextSubcontextB": "Sous-contexte B",
-      "firstContextSubcontextC": "Sous-contexte C"
+    "welcome": {
+      "description": "Arrêtez de passer des semaines à connecter des services entre eux. Unoff vous donne tout ce qu'il faut pour créer, déployer et monétiser des plugins — même si vous n'avez jamais écrit une seule ligne de code. Les skills sont prêts à l'emploi dans votre dossier courant. Ajoutez-en via la commande :",
+      "signature": "Fièrement expédié avec Unoff par {author}",
+      "skills": {
+        "cta": {
+          "access": "Accéder aux skills",
+          "docs": "Lire la documentation"
+        },
+        "description": "Les skills sont des fonctionnalités prêtes à l'emploi à ajouter avec `unoff add skills`."
+      },
+      "title": "Bienvenue dans {pluginName} — un template prêt pour la production pour créer des plugins Figma."
     }
   },
   "onboarding": {
@@ -130,6 +179,9 @@
       "text": "Entrez votre clé de licence après l'achat pour débloquer les fonctionnalités Pro",
       "title": "Activer Pro"
     },
+    "discount": {
+      "amount": "20% de réduction"
+    },
     "planA": {
       "cta": "Passer à Pro",
       "subtitle": "5$ /mois",
@@ -141,9 +193,6 @@
       "subtitle": "15$ /mois",
       "text": "Utilisant les services transactionnels de Lemon Squeezy pour traiter les paiements et gérer les abonnements",
       "title": "Plan B"
-    },
-    "discount": {
-      "amount": "20% de réduction"
     },
     "title": "S'abonner à {pluginName} Pro"
   },
