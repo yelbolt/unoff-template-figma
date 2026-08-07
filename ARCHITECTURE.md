@@ -22,7 +22,7 @@ They land in the directory each assistant reads (`.claude/skills/unoff-create-pl
 | **UI** | Preact application | `ui/component-library.md`, `ui/component-patterns.md`, `ui/state-management.md`, `ui/types-system.md`, `ui/i18n.md` |
 | **Externals** | Integration workflows | `ui/external-services.md`, `externals/payment-systems.md` |
 
-Browse them online at [uno.ylb.lt/docs](https://uno.ylb.lt/docs).
+Browse them online at [uno.ylb.lt/docs](https://uno.ylb.lt/docs) — free and open to everyone, no strings attached.
 
 ### Specs — what your plugin does
 
@@ -55,7 +55,7 @@ unoff ai status     # what is configured, and what is actually installed
 
 Each rules file carries a managed block pointing at `specs/INDEX.md`, refreshed by `unoff sync specs`.
 
-> Need this walked through on your own plugin — monitoring, analytics, licensing? [Book a spot](https://uno.ylb.lt/start).
+> Everything above is documented for free. Guidance tailored to your own plugin — monitoring, analytics, licensing — is the part you unlock: [see what it takes](https://uno.ylb.lt/start).
 
 ---
 
@@ -584,8 +584,8 @@ unoff remove <worker>   # Remove a worker submodule
 
 ## Resources
 
-- [Unoff documentation](https://uno.ylb.lt/docs) — the skills, layer by layer
-- [Book a spot](https://uno.ylb.lt/start) — a walkthrough on your own plugin: monitoring, analytics, licensing
+- [Unoff documentation](https://uno.ylb.lt/docs) — the skills, layer by layer. Free and open
+- [Tailored guidance](https://uno.ylb.lt/start) — a walkthrough on your own plugin (monitoring, analytics, licensing), to unlock
 - [Figma Plugin API](https://www.figma.com/plugin-docs/)
 - [Preact Documentation](https://preactjs.com/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)

@@ -33,7 +33,8 @@ export default class Welcome extends PureComponent<WelcomeProps> {
   handleOpenDocs = () =>
     this.handleOpenUrl(this.props.config.urls.documentationUrl)
 
-  handleBookSpot = () => this.handleOpenUrl(this.props.config.urls.storeUrl)
+  handleUnlockSupport = () =>
+    this.handleOpenUrl(this.props.config.urls.storeUrl)
 
   // Templates
   Step = ({
@@ -171,9 +172,9 @@ export default class Welcome extends PureComponent<WelcomeProps> {
                       <Button
                         type="primary"
                         label={this.props.t(
-                          'template.welcome.support.cta.book'
+                          'template.welcome.support.cta.unlock'
                         )}
-                        action={this.handleBookSpot}
+                        action={this.handleUnlockSupport}
                       />
                     </div>
                   }

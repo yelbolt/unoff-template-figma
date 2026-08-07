@@ -131,10 +131,10 @@
       },
       "support": {
         "cta": {
-          "book": "Book a spot",
-          "docs": "Read the docs"
+          "docs": "Read the docs",
+          "unlock": "Unlock a spot"
         },
-        "description": "The docs cover the whole architecture, layer by layer. If you would rather have it walked through on your own plugin — monitoring, analytics, licensing — book a spot and we go through it together."
+        "description": "The docs are free and open to everyone — the whole architecture, layer by layer. Guidance tailored to your own plugin, on monitoring, analytics or licensing, is the part you unlock: see what it takes and reserve your spot."
       },
       "title": "Welcome to {pluginName} — a production-ready template for building Figma plugins."
     }

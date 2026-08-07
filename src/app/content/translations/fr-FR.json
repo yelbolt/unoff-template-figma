@@ -131,10 +131,10 @@
       },
       "support": {
         "cta": {
-          "book": "Réserver un créneau",
-          "docs": "Lire la documentation"
+          "docs": "Lire la documentation",
+          "unlock": "Débloquer un créneau"
         },
-        "description": "La documentation couvre toute l'architecture, couche par couche. Si vous préférez qu'on la parcoure sur votre propre plugin — monitoring, analytics, licensing — réservez un créneau et on avance ensemble."
+        "description": "La documentation est gratuite et ouverte à tous — toute l'architecture, couche par couche. L'accompagnement sur mesure sur votre propre plugin, sur le monitoring, l'analytics ou le licensing, est la partie à débloquer : voyez les conditions et réservez votre créneau."
       },
       "title": "Bienvenue dans {pluginName} — un template prêt pour la production pour créer des plugins Figma."
     }

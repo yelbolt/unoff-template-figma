@@ -54,7 +54,7 @@ unoff sync specs    # rebuild specs/INDEX.md and point every assistant file at i
 
 A spec declares the `layers` it touches (`canvas`, `bridge`, `ui`, `config`, `externals`), which is how your assistant knows which skill files to read before writing a line. Write the spec first, then let it build.
 
-Full architecture documentation: [uno.ylb.lt/docs](https://uno.ylb.lt/docs). For a walkthrough on your own plugin — monitoring, analytics, licensing — [book a spot](https://uno.ylb.lt/start).
+The full architecture documentation is free and open to everyone: [uno.ylb.lt/docs](https://uno.ylb.lt/docs). Guidance tailored to your own plugin — monitoring, analytics, licensing — is the part you unlock: [see what it takes](https://uno.ylb.lt/start).
 
 ### Beta test
 - Go to the `Actions` section and access the build workflow
