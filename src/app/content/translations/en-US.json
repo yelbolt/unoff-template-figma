@@ -96,17 +96,6 @@
         "y": "Y"
       }
     },
-    "skills": {
-      "architecture": {
-        "bridge": "Bridge handler",
-        "canvas": "Canvas logic",
-        "description": "A skill adds 3 touch points to your plugin",
-        "subcontext": "UI component"
-      },
-      "cta": {
-        "access": "Get skills access"
-      }
-    },
     "subcontexts": {
       "toDoList": "To-do list",
       "colorPalette": "Color palette",
@@ -123,14 +112,29 @@
       }
     },
     "welcome": {
-      "description": "Stop wiring services together for weeks. Unoff gives you everything you need to build, ship, and monetize plugins — even if you've never written a line of code. Skills are ready-to-use in your current folder. Add them via the command:",
+      "description": "Stop wiring services together for weeks. Auth, payments, analytics and the canvas bridge are already here — what is left is your product. Write it down as a spec, and your AI assistant builds it against the unoff skills. They are free, open source, and they land straight in your folder.",
       "signature": "Proudly shipped with Unoff by {author}",
-      "skills": {
+      "steps": {
+        "assistant": {
+          "description": "Installs the skills, the project rules and the layer agents for whichever assistant you use — Claude, Copilot, Cursor, Windsurf or Codex.",
+          "label": "1. Set up your assistant"
+        },
+        "specs": {
+          "description": "This is the one that matters. A spec says what a feature does, the rules it must respect, and which layers it touches — so your assistant knows exactly which skills to read before writing a line.",
+          "label": "2. Describe what you build"
+        },
+        "sync": {
+          "description": "Rebuilds the spec index and points every assistant instruction file at it. Run it again each time a spec changes.",
+          "label": "3. Wire it in"
+        },
+        "title": "Start here"
+      },
+      "support": {
         "cta": {
-          "access": "Get skills access",
+          "book": "Book a spot",
           "docs": "Read the docs"
         },
-        "description": "Subscribe to unlock a growing library of skills that you can use in your plugin. They are plug-and-play, so you can easily add them to your current folder and start using them right away."
+        "description": "The docs cover the whole architecture, layer by layer. If you would rather have it walked through on your own plugin — monitoring, analytics, licensing — book a spot and we go through it together."
       },
       "title": "Welcome to {pluginName} — a production-ready template for building Figma plugins."
     }

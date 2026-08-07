@@ -6,31 +6,56 @@ This template is a Figma plugin built with **TypeScript**, **Preact** (aliased a
 
 ## Full Documentation
 
-For detailed documentation and implementation guides, see:
+The architecture below is documented in depth as the **unoff skills** — free, open source, and installed into your project by `unoff ai`:
 
-**[Architecture & Skills Documentation](.claude/skills/unoff-create-plugin/README.md)**
+```bash
+unoff ai        # pick your assistants, then install skills, rules and agents
+```
 
-The documentation is organized into five layers:
+They land in the directory each assistant reads (`.claude/skills/unoff-create-plugin/`, `.agents/skills/unoff-create-plugin/`, …) and are organized into five layers:
 
-- **Canvas** — Figma API operations ([canvas-api.md](.claude/skills/unoff-create-plugin/canvas/figma/canvas-api.md), [data-storage.md](.claude/skills/unoff-create-plugin/canvas/figma/data-storage.md))
-- **Bridge** — UI ↔ Canvas communication ([communication-pattern.md](.claude/skills/unoff-create-plugin/bridge/figma/communication-pattern.md), [bridge-functions.md](.claude/skills/unoff-create-plugin/bridge/figma/bridge-functions.md))
-- **Config** — Feature flags, credits, build system ([global-config.md](.claude/skills/unoff-create-plugin/config/global-config.md), [feature-flags.md](.claude/skills/unoff-create-plugin/config/feature-flags.md), [vite-build.md](.claude/skills/unoff-create-plugin/config/vite-build.md))
-- **UI** — Preact application ([component-library.md](.claude/skills/unoff-create-plugin/ui/component-library.md), [component-patterns.md](.claude/skills/unoff-create-plugin/ui/component-patterns.md), [external-services.md](.claude/skills/unoff-create-plugin/ui/external-services.md), [state-management.md](.claude/skills/unoff-create-plugin/ui/state-management.md), [i18n.md](.claude/skills/unoff-create-plugin/ui/i18n.md))
-- **Externals** — Integration workflows ([payment-systems.md](.claude/skills/unoff-create-plugin/externals/payment-systems.md))
+| Layer | Covers | Skill files |
+|-------|--------|-------------|
+| **Canvas** | Figma API operations | `canvas/figma/canvas-api.md`, `canvas/figma/data-storage.md` |
+| **Bridge** | UI ↔ Canvas communication | `bridge/figma/communication-pattern.md`, `bridge/figma/bridge-functions.md` |
+| **Config** | Feature flags, credits, build system | `config/global-config.md`, `config/feature-flags.md`, `config/credits-system.md` |
+| **UI** | Preact application | `ui/component-library.md`, `ui/component-patterns.md`, `ui/state-management.md`, `ui/types-system.md`, `ui/i18n.md` |
+| **Externals** | Integration workflows | `ui/external-services.md`, `externals/payment-systems.md` |
+
+Browse them online at [uno.ylb.lt/docs](https://uno.ylb.lt/docs).
+
+### Specs — what your plugin does
+
+The skills describe **how** this template is built. They know nothing about **what you are building** — that is what specs are for, and it is the part worth investing in:
+
+```bash
+unoff add specs     # scaffold a spec: what it does, its rules, the layers it touches
+unoff sync specs    # rebuild specs/INDEX.md and point every assistant file at it
+```
+
+A spec declares the `layers` it touches, in the same vocabulary as the table above. That is how an assistant goes from _what to build_ to _which skill files to read_ — no guessing. Write the spec first, then let it build.
 
 ### AI Tools Configuration
 
-This project is configured to work with all major AI development tools:
+Rules, agents and MCP configuration are **generated per assistant** by the CLI — the template ships none of them, so nothing drifts out of sync:
 
-| Tool | Configuration File | Description |
-|------|-------------------|-------------|
-| **GitHub Copilot** | `.github/copilot-instructions.md` | Guidelines for GitHub Copilot in VS Code |
-| **Cursor** | `.cursor/rules/project.mdc` | Configuration for Cursor AI |
-| **Windsurf** | `.windsurf/rules/project.md` | Configuration for Windsurf AI |
-| **Claude (VS Code)** | `.claude/settings.json` | Configuration for Claude in VS Code |
-| **Figma MCP** | `.vscode/mcp.json` `.cursor/mcp.json` `.windsurf/mcp.json` | MCP servers for Figma design-to-code |
+| Tool | Rules | Agents |
+|------|-------|--------|
+| **Claude Code** | `CLAUDE.md` | `.claude/agents/` |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | `.github/agents/` |
+| **ChatGPT / Codex** | `AGENTS.md` | role table in rules |
+| **Cursor** | `.cursor/rules/project.mdc` | role table in rules |
+| **Windsurf** | `.windsurf/rules/project.md` | role table in rules |
 
-All these files reference the full documentation in `.claude/skills/unoff-create-plugin/` as a single source of truth.
+```bash
+unoff add rules     # rules + MCP for every configured assistant
+unoff add agents    # the five layer specialists + the conformance reviewer
+unoff ai status     # what is configured, and what is actually installed
+```
+
+Each rules file carries a managed block pointing at `specs/INDEX.md`, refreshed by `unoff sync specs`.
+
+> Need this walked through on your own plugin — monitoring, analytics, licensing? [Book a spot](https://uno.ylb.lt/start).
 
 ---
 
@@ -39,44 +64,13 @@ All these files reference the full documentation in `.claude/skills/unoff-create
 ```
 {{ pluginName }}/
 ├── .github/                    # GitHub configuration
-│   ├── copilot-instructions.md # GitHub Copilot guidelines
-├── .claude/
-│   └── skills/
-│       └── unoff-create-plugin/  # Detailed documentation by layer
-│           ├── README.md           # Documentation index
-│           ├── canvas/             # Canvas layer
-│           │   └── figma/
-│           │       ├── canvas-api.md
-│           │       └── data-storage.md
-│           ├── bridge/             # Bridge layer
-│           │   └── figma/
-│           │       ├── communication-pattern.md
-│           │       └── bridge-functions.md
-│           ├── config/             # Config & build layer
-│           │   ├── global-config.md
-│           │   ├── feature-flags.md
-│           │   ├── credits-system.md
-│           │   ├── vite-build.md
-│           │   └── code-quality.md
-│           ├── ui/                 # UI layer
-│           │   ├── component-library.md
-│           │   ├── component-patterns.md
-│           │   ├── external-services.md
-│           │   ├── state-management.md
-│           │   ├── i18n.md
-│           │   ├── types-system.md
-│           │   ├── error-handling.md
-│           │   ├── css-theming.md
-│           │   ├── accessibility.md
-│           │   ├── performance.md
-│           │   └── app-bootstrap.md
-│           └── externals/          # External integrations
-│               ├── implement-design # Figma spec → code workflow
-│               └── payment-systems.md
 │   ├── CODEOWNERS             # Code ownership
 │   ├── ISSUE_TEMPLATE/        # Issue templates
 │   └── workflows/             # CI/CD workflows
-├── .mcp.json                   # MCP servers (Figma remote + desktop)
+├── specs/                      # What your plugin does — unoff add specs
+│   ├── INDEX.md               # Generated routing table — unoff sync specs
+│   └── *.md                   # One spec per feature, declaring its layers
+├── .unoff/skills/              # Skills submodule — unoff add skills (optional)
 ├── .vscode/                    # VS Code settings
 ├── workers/                    # Cloudflare Workers (git submodules, optional)
 │   ├── announcement-worker/    # unoff add announcement-worker
@@ -131,12 +125,7 @@ All these files reference the full documentation in `.claude/skills/unoff-create
 │   │   ├── i18n.ts
 │   │   └── setData.ts
 │   └── global.config.ts       # Global configuration
-├── .claude/                    # Claude (VS Code) settings
-│   └── settings.json
-├── .cursor/                    # Cursor AI configuration
-│   ├── mcp.json
-│   └── rules/
-│       └── project.mdc
+├── unoff.config.json          # Which assistants this project targets
 ├── .eslintrc.json             # ESLint configuration
 ├── .prettierrc.json           # Prettier configuration
 ├── tsconfig.json              # TypeScript configuration
@@ -455,13 +444,9 @@ const className = doClassnames([layouts['snackbar--medium'], texts['type'], isAc
 | `.prettierrc.json` | Prettier configuration |
 | `tsconfig.json` | TypeScript strict mode |
 | `vite.config.ts` | Dual Vite build (IIFE Canvas + single-file UI) |
-| `.cursor/rules/project.mdc` | Cursor AI guidelines |
-| `.cursor/mcp.json` | MCP servers (Figma remote + desktop) |
-| `.windsurf/rules/project.md` | Windsurf AI guidelines |
-| `.windsurf/mcp.json` | MCP servers (Figma remote + desktop) |
-| `.claude/settings.json` | Claude (VS Code) guidelines |
-| `.github/copilot-instructions.md` | GitHub Copilot guidelines |
-| `.vscode/mcp.json` | MCP servers (Figma remote + desktop) |
+| `unoff.config.json` | Assistants targeted, specs folder, skills path |
+
+Assistant rules and MCP files are not listed here — they are generated by `unoff add rules` for the assistants you selected, and regenerated with `--force`.
 
 ### Available Scripts
 
@@ -542,13 +527,22 @@ Worker scripts are injected automatically by `unoff add <worker>`.
 
 ### Adding a New Feature
 
-1. **Define types** (`src/app/types/`)
-2. **Create bridge logic** (`src/bridges/`)
-3. **Add action in `loadUI.ts`**
-4. **Create UI components** (`src/app/ui/`)
-5. **Wire communication** (`sendPluginMessage` + `componentDidMount` listener)
-6. **Add to store if needed** (`src/app/stores/`)
-7. **Add translations** (`src/app/content/translations/`)
+Start with the spec — it is what turns "add the paywall" into a set of files your assistant knows to read:
+
+1. **Write the spec** (`unoff add specs`) — problem, user flow, rules, acceptance criteria, and the `layers` it touches
+2. **Sync it** (`unoff sync specs`) — regenerates `specs/INDEX.md` and points every assistant file at it
+
+Then implement, layer by layer:
+
+3. **Define types** (`src/app/types/`)
+4. **Create bridge logic** (`src/bridges/`)
+5. **Add action in `loadUI.ts`**
+6. **Create UI components** (`src/app/ui/`)
+7. **Wire communication** (`sendPluginMessage` + `componentDidMount` listener)
+8. **Add to store if needed** (`src/app/stores/`)
+9. **Add translations** (`src/app/content/translations/`)
+
+The spec's acceptance criteria are what "done" means — check each one before calling the feature finished.
 
 ### Adding a Worker
 
@@ -576,6 +570,13 @@ unoff build         # or: npm run build:prod
 unoff check         # lint + typecheck
 unoff format        # Prettier
 
+# AI assistants
+unoff ai            # pick assistants, install skills + rules + agents + specs
+unoff ai status     # what is configured, and what is installed
+unoff add specs     # scaffold a spec
+unoff sync specs    # rebuild the spec index + assistant pointers
+unoff sync skills   # re-link the skills submodule
+
 # Workers
 unoff add <worker>      # Add a worker submodule
 unoff remove <worker>   # Remove a worker submodule
@@ -583,6 +584,8 @@ unoff remove <worker>   # Remove a worker submodule
 
 ## Resources
 
+- [Unoff documentation](https://uno.ylb.lt/docs) — the skills, layer by layer
+- [Book a spot](https://uno.ylb.lt/start) — a walkthrough on your own plugin: monitoring, analytics, licensing
 - [Figma Plugin API](https://www.figma.com/plugin-docs/)
 - [Preact Documentation](https://preactjs.com/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)

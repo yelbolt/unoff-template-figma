@@ -42,6 +42,20 @@ Go to the `Issues` section and browse the existing tickets or create a new one.
 - Create a `Branch` and open a `Pull Request`
 - _Let's do this_
 
+### Building with AI
+
+The architecture of this template is documented as **skills** — free, open source, and read by your AI assistant. What they do not know is your product, and that is what **specs** are for.
+
+```bash
+unoff ai            # install skills, rules and agents for your assistant
+unoff add specs     # describe a feature: what it does, its rules, the layers it touches
+unoff sync specs    # rebuild specs/INDEX.md and point every assistant file at it
+```
+
+A spec declares the `layers` it touches (`canvas`, `bridge`, `ui`, `config`, `externals`), which is how your assistant knows which skill files to read before writing a line. Write the spec first, then let it build.
+
+Full architecture documentation: [uno.ylb.lt/docs](https://uno.ylb.lt/docs). For a walkthrough on your own plugin — monitoring, analytics, licensing — [book a spot](https://uno.ylb.lt/start).
+
 ### Beta test
 - Go to the `Actions` section and access the build workflow
 - Click `Run workflow`, then select a branch and confirm
