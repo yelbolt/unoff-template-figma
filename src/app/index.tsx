@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import mixpanel from 'mixpanel-figma'
+import { commons, figmaPlugin, figmaTypes } from '@unoff/ui'
 import { TolgeeProvider } from '@tolgee/react'
 import * as Sentry from '@sentry/react'
 import globalConfig from '../global.config'
@@ -128,6 +129,11 @@ window.addEventListener('pluginMessage', ((event: MessageEvent) => {
     parent.postMessage(message, targetOrigin)
   }
 }) as EventListener)
+
+// Figma Theme
+void commons
+void figmaPlugin
+void figmaTypes
 
 // Render
 tolgee?.run().then(() => {
