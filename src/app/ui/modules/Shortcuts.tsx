@@ -572,6 +572,20 @@ export default class Shortcuts extends PureComponent<
                           ]),
                       {
                         type: 'SEPARATOR' as const,
+                        isActive:
+                          Shortcuts.features(
+                            this.props.planStatus,
+                            this.props.config,
+                            this.props.service,
+                            this.props.editor
+                          ).AUTHENTICATION.isActive() &&
+                          this.props.config.env.isSupabaseEnabled,
+                        isBlocked: Shortcuts.features(
+                          this.props.planStatus,
+                          this.props.config,
+                          this.props.service,
+                          this.props.editor
+                        ).AUTHENTICATION.isBlocked(),
                       },
                       {
                         label: this.props.t('user.updateConsent'),
