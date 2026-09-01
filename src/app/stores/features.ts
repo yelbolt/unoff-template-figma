@@ -298,17 +298,6 @@ export const featuresScheme: Array<Feature<'MY_SERVICE'>> = [
     ],
   },
   {
-    name: 'USER_LICENSE_JUMP',
-    description: 'Jumps to license-managed plugin',
-    isActive: true,
-    isPro: false,
-    isNew: false,
-    type: 'ACTION',
-    availabilityForServices: ['MY_SERVICE'],
-    proForServices: ['MY_SERVICE'],
-    availabilityForEditors: ['figma', 'figjam', 'dev', 'dev_vscode', 'buzz'],
-  },
-  {
     name: 'USER_LANGUAGE',
     description: 'User language settings',
     isActive: true,

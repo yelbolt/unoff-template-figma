@@ -43,10 +43,7 @@ interface ShortcutsState {
   isUserMenuLoading: boolean
 }
 
-export default class Shortcuts extends PureComponent<
-  ShortcutsProps,
-  ShortcutsState
-> {
+export default class Shortcuts extends PureComponent<ShortcutsProps, ShortcutsState> {
   private theme: string | null
 
   static features = (
@@ -72,13 +69,6 @@ export default class Shortcuts extends PureComponent<
     USER_LICENSE: new FeatureStatus({
       features: config.features,
       featureName: 'USER_LICENSE',
-      planStatus: planStatus,
-      currentService: service,
-      currentEditor: editor,
-    }),
-    USER_LICENSE_JUMP: new FeatureStatus({
-      features: config.features,
-      featureName: 'USER_LICENSE_JUMP',
       planStatus: planStatus,
       currentService: service,
       currentEditor: editor,
