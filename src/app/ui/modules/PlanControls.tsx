@@ -49,6 +49,15 @@ export default class PlanControls extends PureComponent<
     }),
   })
 
+  private get features() {
+    return PlanControls.features(
+      this.props.planStatus,
+      this.props.config,
+      this.props.service,
+      this.props.editor
+    )
+  }
+
   constructor(props: PlanControlsProps) {
     super(props)
     this.state = {
@@ -73,12 +82,7 @@ export default class PlanControls extends PureComponent<
   Fees = (): ComponentChildren => {
     return (
       <ul className="list-item">
-        {PlanControls.features(
-          this.props.planStatus,
-          this.props.config,
-          this.props.service,
-          this.props.editor
-        ).MY_FEE.isActive() && (
+        {this.features.MY_FEE.isActive() && (
           <li>
             {this.props.t('plan.credits.fees.myFee', {
               fee: this.props.config.fees.myFee,
@@ -184,14 +188,7 @@ export default class PlanControls extends PureComponent<
   )
 
   trialFeedback = () => (
-    <Feature
-      isActive={PlanControls.features(
-        this.props.planStatus,
-        this.props.config,
-        this.props.service,
-        this.props.editor
-      ).INVOLVE_FEEDBACK.isActive()}
-    >
+    <Feature isActive={this.features.INVOLVE_FEEDBACK.isActive()}>
       <div
         className={doClassnames([
           texts.type,
@@ -203,18 +200,8 @@ export default class PlanControls extends PureComponent<
         <Button
           type="tertiary"
           label={this.props.t('plan.trialFeedback')}
-          isBlocked={PlanControls.features(
-            this.props.planStatus,
-            this.props.config,
-            this.props.service,
-            this.props.editor
-          ).INVOLVE_FEEDBACK.isBlocked()}
-          isNew={PlanControls.features(
-            this.props.planStatus,
-            this.props.config,
-            this.props.service,
-            this.props.editor
-          ).INVOLVE_FEEDBACK.isNew()}
+          isBlocked={this.features.INVOLVE_FEEDBACK.isBlocked()}
+          isNew={this.features.INVOLVE_FEEDBACK.isNew()}
           action={() =>
             sendPluginMessage(
               {

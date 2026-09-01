@@ -49,6 +49,15 @@ export default class Announcements extends PureComponent<
     }),
   })
 
+  private get features() {
+    return Announcements.features(
+      this.props.planStatus,
+      this.props.config,
+      this.props.service,
+      this.props.editor
+    )
+  }
+
   constructor(props: AnnouncementsProps) {
     super(props)
     this.state = {
@@ -120,14 +129,7 @@ export default class Announcements extends PureComponent<
   render() {
     if (this.state.status === 'LOADING')
       return (
-        <Feature
-          isActive={Announcements.features(
-            this.props.planStatus,
-            this.props.config,
-            this.props.service,
-            this.props.editor
-          ).HELP_ANNOUNCEMENTS.isActive()}
-        >
+        <Feature isActive={this.features.HELP_ANNOUNCEMENTS.isActive()}>
           <Dialog
             title={this.props.t('shortcuts.news')}
             isLoading
@@ -137,14 +139,7 @@ export default class Announcements extends PureComponent<
       )
     else if (this.state.status === 'ERROR')
       return (
-        <Feature
-          isActive={Announcements.features(
-            this.props.planStatus,
-            this.props.config,
-            this.props.service,
-            this.props.editor
-          ).HELP_ANNOUNCEMENTS.isActive()}
-        >
+        <Feature isActive={this.features.HELP_ANNOUNCEMENTS.isActive()}>
           <Dialog
             title={this.props.t('shortcuts.news')}
             isMessage
@@ -159,14 +154,7 @@ export default class Announcements extends PureComponent<
       )
     else if (this.state.announcements.length === 0)
       return (
-        <Feature
-          isActive={Announcements.features(
-            this.props.planStatus,
-            this.props.config,
-            this.props.service,
-            this.props.editor
-          ).HELP_ANNOUNCEMENTS.isActive()}
-        >
+        <Feature isActive={this.features.HELP_ANNOUNCEMENTS.isActive()}>
           <Dialog
             title={this.props.t('shortcuts.news')}
             isMessage
@@ -202,14 +190,7 @@ export default class Announcements extends PureComponent<
       )
     else
       return (
-        <Feature
-          isActive={Announcements.features(
-            this.props.planStatus,
-            this.props.config,
-            this.props.service,
-            this.props.editor
-          ).HELP_ANNOUNCEMENTS.isActive()}
-        >
+        <Feature isActive={this.features.HELP_ANNOUNCEMENTS.isActive()}>
           <Dialog
             title={
               this.state.announcements[this.state.position].properties.Title

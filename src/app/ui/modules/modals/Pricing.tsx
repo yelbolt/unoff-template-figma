@@ -47,6 +47,15 @@ export default class Pricing extends PureComponent<PricingProps, PricingState> {
     }),
   })
 
+  private get features() {
+    return Pricing.features(
+      this.props.planStatus,
+      this.props.config,
+      this.props.service,
+      this.props.editor
+    )
+  }
+
   constructor(props: PricingProps) {
     super(props)
     this.theme = document.documentElement.getAttribute('data-theme')
@@ -269,14 +278,7 @@ export default class Pricing extends PureComponent<PricingProps, PricingState> {
     }
 
     return (
-      <Feature
-        isActive={Pricing.features(
-          this.props.planStatus,
-          this.props.config,
-          this.props.service,
-          this.props.editor
-        ).PRO_PLAN.isActive()}
-      >
+      <Feature isActive={this.features.PRO_PLAN.isActive()}>
         <Dialog
           title={this.props.t('pricing.title', {
             pluginName: this.props.config.information.pluginName,
