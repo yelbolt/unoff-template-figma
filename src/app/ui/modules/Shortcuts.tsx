@@ -651,6 +651,11 @@ export default class Shortcuts extends PureComponent<
                     },
                     {
                       type: 'SEPARATOR',
+                      isActive:
+                        this.features.HELP_ANNOUNCEMENTS.isActive() ||
+                        this.features.HELP_ONBOARDING.isActive() ||
+                        this.features.HELP_EMAIL.isActive() ||
+                        this.features.HELP_CHAT.isActive(),
                     },
                     {
                       label: this.props.t('shortcuts.community'),
@@ -743,6 +748,12 @@ export default class Shortcuts extends PureComponent<
                     },
                     {
                       type: 'SEPARATOR',
+                      isActive:
+                        this.features.INVOLVE_COMMUNITY.isActive() ||
+                        this.features.INVOLVE_REQUESTS.isActive() ||
+                        this.features.INVOLVE_ISSUES.isActive() ||
+                        this.features.INVOLVE_FEEDBACK.isActive() ||
+                        this.features.INVOLVE_REPOSITORY.isActive(),
                     },
                     {
                       label: this.props.t('about.title', {
