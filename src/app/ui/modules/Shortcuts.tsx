@@ -582,6 +582,7 @@ export default class Shortcuts extends PureComponent<
                       pin: 'TOP',
                     }}
                     selected={this.props.config.lang}
+                    isAlwaysExpanded
                   />
                 </Feature>
                 <Menu
@@ -806,6 +807,7 @@ export default class Shortcuts extends PureComponent<
                       ? true
                       : false
                   }
+                  isAlwaysExpanded
                 />
               </div>
               <Feature isActive={this.features.RESIZE_UI.isActive()}>
