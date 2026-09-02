@@ -43,10 +43,7 @@ interface ShortcutsState {
   isUserMenuLoading: boolean
 }
 
-export default class Shortcuts extends PureComponent<
-  ShortcutsProps,
-  ShortcutsState
-> {
+export default class Shortcuts extends PureComponent<ShortcutsProps, ShortcutsState> {
   private theme: string | null
 
   static features = (
@@ -204,7 +201,7 @@ export default class Shortcuts extends PureComponent<
     }),
     PRO_PLAN: new FeatureStatus({
       features: config.features,
-      featureName: 'BACKSTAGE_PRO_PLAN',
+      featureName: 'PRO_PLAN',
       planStatus: planStatus,
       currentService: service,
       currentEditor: editor,
