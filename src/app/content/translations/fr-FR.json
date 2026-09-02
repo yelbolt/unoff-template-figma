@@ -6,7 +6,7 @@
         "sentence": "• L'interface utilisateur est construite avec {preact}"
       },
       "supabase": {
-        "sentence": "• Les palettes distantes sont stockées avec {supabase}",
+        "sentence": "• Les données distantes sont stockées avec {supabase}",
         "supabase": "Supabase"
       },
       "title": "Attributions",

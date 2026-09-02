@@ -6,7 +6,7 @@
         "sentence": "• The UI is built using {preact}"
       },
       "supabase": {
-        "sentence": "• The remote palettes are stored using {supabase}",
+        "sentence": "• Remore data is stored using {supabase}",
         "supabase": "Supabase"
       },
       "title": "Attributions",
