@@ -749,7 +749,9 @@ class App extends Component<AppProps, AppState> {
         <main
           className="ui"
           inert={
-            this.state.modalContext !== 'EMPTY' || this.state.mustUserConsent
+            this.state.modalContext !== 'EMPTY' ||
+            (this.state.mustUserConsent &&
+              this.features.USER_CONSENT.isActive())
           }
         >
           <Feature
